@@ -56,8 +56,8 @@
  ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 클래스
 
  ┣ 📂weights
- ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # provide throught git-lfs (0.3 GB)
- ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will not provide (>1.0 GB)
+ ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # provide throught git-lfs (0.3 GB), MODE==2
+ ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will not provide (>1.0 GB), MODE==2
 
  ┣ 📜.gitattributes                        # git-lfs managing
  ┣ 📜.gitignore
