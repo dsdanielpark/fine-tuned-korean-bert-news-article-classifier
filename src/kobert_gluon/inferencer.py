@@ -1,12 +1,18 @@
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+package_root_directory = file.parents[1]
+sys.path.append(str(package_root_directory))
 import pandas as pd
 import numpy as np
 import gluonnlp as nlp
 import mxnet as mx
-from gluon_kobert.model import BERTClassifier
+from model import BERTClassifier
 from torch.utils.data import DataLoader
 from kobert.mxnet_kobert import get_mxnet_kobert_model
+from kobert.mxnet_kobert import get_mxnet_kobert_model
 from kobert.mxnet_kobert import get_tokenizer
-from gluon_kobert.dataloader import BERTDataset
+from dataloader import BERTDataset
 from preprocess.processor import NLPdata 
 ctx = mx.cpu()
 

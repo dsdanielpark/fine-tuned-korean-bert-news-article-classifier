@@ -7,9 +7,9 @@ from kobert.pytorch_kobert import get_tokenizer
 from kobert.pytorch_kobert import get_pytorch_kobert_model
 from transformers import AdamW
 from transformers.optimization import get_cosine_schedule_with_warmup
-from pytorch_kobert.dataloader import BERTDataset
+from dataloader import BERTDataset
 from preprocess.processor import NLPdata
-from pytorch_kobert.model import BERTClassifier
+from model import BERTClassifier
 
 
 max_len = 64
