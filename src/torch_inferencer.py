@@ -64,7 +64,7 @@ if __name__ == "__main__":
     ]
     optimizer = AdamW(optimizer_grouped_parameters, lr=learning_rate)
 
-    checkpoint = torch.load('./weights/ko-news-clf-torch.pth', map_location='cpu')
+    checkpoint = torch.load('./weights/ko-news-clf-torch-weight.pth', map_location='cpu')
     model.load_state_dict(checkpoint['model_state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 

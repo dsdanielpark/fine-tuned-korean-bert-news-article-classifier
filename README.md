@@ -13,7 +13,7 @@
 
 <br><Br>
 ## Related Packages
-#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): pd.DataFrame을 인풋으로, 빠르고 쉽게 t-SNE 및 PCA 결과를 시각화할 수 있는 패키지
+#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): pd.DataFrame을 인풋으로, 빠르고 쉽게 시각화할 수 있는 패키지
 ```bash
 $ pip install quickshow
 ```
