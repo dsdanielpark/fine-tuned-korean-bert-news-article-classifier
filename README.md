@@ -215,7 +215,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilBER
   | No | Condition | Best Test Accuracy | Epoch | 
   |:---:|:---|:---:|:---:|
   EXP1 | mode=1, batch_size=32 | 0.8842 | at Epoch 10
-  EXP2 | mode=1, batch_size=32, epoch=20 without early stopping. | 0.8895 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at epoch 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  EXP2 | mode=1, batch_size=32, epoch=20 without early stopping. | 0.8895 | at epoch 12
   EXP3 | mode=1, batch_size=16 | 0.8800 | at epoch 4
   EXP4 | mode=1, batch_size=32 repeat of exp1 for check effect of randomness. | 0.8864 | at epoch 7
   EXP5 | mode=1, batch_size=32 | 0.8874 | at epoch 7 
