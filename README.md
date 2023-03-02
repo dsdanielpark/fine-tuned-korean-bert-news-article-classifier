@@ -1,6 +1,6 @@
 # korean-news-topic-classification-using-KO-BERT(public)
 
-> 🚸 **Be careful when cloning this repo**: It contains large NLP model weights. (>1.4GB, git-lfs)
+> 🚸 **Be careful when cloning this repo**: It contains large NLP model weights. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
 
 ### TASK: Multi-category(8 classes) Korean News Topic Classifier 한글 뉴스 토픽 다중 분류 모델 <Br>
 - Perform a simple task to compare the performance of KO-BERT and implementations of BERT in different frameworks <br>
