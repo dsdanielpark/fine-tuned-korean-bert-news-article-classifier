@@ -7,20 +7,11 @@ import pandas as pd
 import numpy as np
 import gluonnlp as nlp
 import mxnet as mx
-
-# main
 from kobert_gluon.model import BERTClassifier
 from kobert_gluon.dataloader import BERTDataset
 from src.preprocess.processor import NLPdata 
-
-# unit test
-# from model import BERTClassifier
-# from dataloader import BERTDataset
-# from preprocess.processor import NLPdata 
-
 from kobert.mxnet_kobert import get_mxnet_kobert_model
 from kobert.mxnet_kobert import get_tokenizer
-
 
 
 class GluonBERTClassifierInferencer(BERTClassifier, NLPdata):
@@ -38,7 +29,6 @@ class GluonBERTClassifierInferencer(BERTClassifier, NLPdata):
         self.data_test = BERTDataset(self.dataset_test, 0, 1, self.tok, cfg['max_len'], True, False)
         self.data_iter = mx.gluon.data.DataLoader(self.data_test, batch_size=int(cfg['batch_size']/2))
         self.save_path = save_path
-
 
     def infer(self) -> (list, list):
         i = 0
@@ -65,8 +55,13 @@ class GluonBERTClassifierInferencer(BERTClassifier, NLPdata):
                 print(f'Predicted news topic: {class_dict[predicted_y[0]]}')
 
         return cls_dense_layers_val_list, predicted_y
+    
 
 
+# unit test
+# from model import BERTClassifier
+# from dataloader import BERTDataset
+# from preprocess.processor import NLPdata 
 # if __name__ == "__main__":
 #     cfg = {'max_len': 128, 'batch_size':32}
 #     gluon_bert_inferencer = GluonBERTClassifierInferencer(cfg, "./weights/ko-news-clf-gluon-weight.pth", "./data/sample.csv", None)

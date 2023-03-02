@@ -46,17 +46,13 @@ def gluon_infer(model: object, data_iter: DataLoader, save_path:str, ctx=ctx) ->
 if __name__ == "__main__":
     max_len = 128
     batch_size = 32
-    
     bert_base, vocab = get_mxnet_kobert_model(use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache")
     tokenizer = get_tokenizer()
     tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
-
     dataset_test = NLPdata().TSVDdataset("./data/sample.csv", 'cleanBody', 'category', 'mode2', None)
     data_test = BERTDataset(dataset_test, 0, 1, tok, max_len, True, False)
     test_dataloader = mx.gluon.data.DataLoader(data_test, batch_size=int(batch_size/2))
     bert_base, vocab = get_mxnet_kobert_model(use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache")
-
     model = BERTClassifier(bert_base, num_classes=8, dropout=0.1)
     model.load_parameters("./weights/ko-news-clf-gluon-weight.pth")
-    
     cls_dense_layers_val_list, predicted_y = gluon_infer(model, test_dataloader, None, ctx=ctx) 

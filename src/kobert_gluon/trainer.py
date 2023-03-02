@@ -19,7 +19,6 @@ class BERTTrainer:
         self.device = mx.cpu() # device name
         self.all_model_params = model.collect_params()
         self.log_interval = 4
-    
 
     @classmethod
     def fine_tunning(self, config, model, data_train, train_dataloader, test_dataloader, save_path):
@@ -81,7 +80,6 @@ class BERTTrainer:
             test_acc = self._evaluate_accuracy(model, test_dataloader, self.device)
             print('Test Accuracy: {}'.format(test_acc))
             model.save_parameters(save_path) # model save
-
 
     def _evaluate_accuracy(model, data_iter, self.device=self.device):
         acc = mx.metric.Accuracy()

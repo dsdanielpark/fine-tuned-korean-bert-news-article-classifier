@@ -7,7 +7,7 @@ from kobert.pytorch_kobert import get_pytorch_kobert_model
 from transformers import AdamW
 from transformers.optimization import get_cosine_schedule_with_warmup
 from dataloader import BERTDataset
-from preprocessor import NLPdata
+from ..preprocess.processor import NLPdata
 from model import BERTClassifier
 
 max_len = 64
@@ -18,12 +18,11 @@ max_grad_norm = 1
 log_interval = 200
 learning_rate =  5e-5
 
-
 def calc_accuracy(X,Y):
     max_vals, max_indices = torch.max(X, 1)
     train_acc = (max_indices == Y).sum().data.cpu().numpy()/max_indices.size()[0]
-    return train_acc
 
+    return train_acc
 
 def torch_save(model, optimizer, save_path):
     torch.save({
@@ -31,21 +30,17 @@ def torch_save(model, optimizer, save_path):
         'optimizer_state_dict': optimizer.state_dict()
     }, save_path)
 
-
 def train_torch_bert(model, dataloader, save_path):
     no_decay = ['bias', 'LayerNorm.weight']
     optimizer_grouped_parameters = [
         {'params': [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)], 'weight_decay': 0.01},
         {'params': [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}
     ]
-    
     optimizer = AdamW(optimizer_grouped_parameters, lr=learning_rate)
     loss_fn = nn.CrossEntropyLoss()
-    
     t_total = len(dataloader) * num_epochs
     warmup_step = int(t_total * warmup_ratio)
     scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=warmup_step, num_training_steps=t_total)
-
     for e in range(num_epochs):
         train_acc = 0.0
         test_acc = 0.0

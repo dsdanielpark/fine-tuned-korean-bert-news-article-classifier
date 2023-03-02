@@ -6,11 +6,9 @@ from tqdm.notebook import tqdm
 from kobert.pytorch_kobert import get_tokenizer
 from kobert.pytorch_kobert import get_pytorch_kobert_model
 from transformers import AdamW
-from transformers.optimization import get_cosine_schedule_with_warmup
 from dataloader import BERTDataset
 from preprocess.processor import NLPdata
 from model import BERTClassifier
-
 
 max_len = 64
 batch_size = 64
@@ -19,7 +17,6 @@ num_epochs = 5
 max_grad_norm = 1
 log_interval = 200
 learning_rate =  5e-5
-
 
 def torch_bert_inference(model: object, dataloader: object, save_path: str, device: object) -> pd.DataFrame:
     class_dict = {0: 'international', 1: 'economy', 2: 'society', 3: 'sport', 4: 'it', 5: 'politics', 6: 'entertain', 7: 'culture'}
@@ -44,6 +41,21 @@ def torch_bert_inference(model: object, dataloader: object, save_path: str, devi
         print(class_dict[predicted_y[0]])
         
     return df_eval
+
+# TEMPORAL METHOD
+# def single_text_inference(self, input_text):
+#     dataset_inf = [[input_text, '99']]
+#     data_inf = BERTDataset(dataset_inf, 0, 1, self.tok, self.cfg['max_len'], True, False)
+#     inf_dataloader = torch.utils.data.DataLoader(data_inf, batch_size=self.cfg['batch_size'])
+#     for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(inf_dataloader):
+#         token_ids = token_ids.long().to(self.device)
+#         segment_ids = segment_ids.long().to(self.device)
+#         valid_length= valid_length
+#         out = self.model(token_ids, valid_length, segment_ids)
+#         cls_pooled_denselayer = out.detach().numpy()
+#         predicted_y = np.argmax(cls_pooled_denselayer)
+        
+#     return cls_pooled_denselayer,  predicted_y
 
 
 if __name__ == "__main__":
