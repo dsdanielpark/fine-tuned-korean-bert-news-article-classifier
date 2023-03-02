@@ -1,4 +1,4 @@
-# Korean-news-topic-classification-using-KO-BERT(public)
+# Korean-news-topic-classification-using-KO-BERT
 
 > 🚸 **Be careful when cloning this repo**: It contains large NLP model weights. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
 
