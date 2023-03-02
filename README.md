@@ -57,7 +57,7 @@
  ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # provide throught git-lfs (0.3 GB)
  ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will not provide (>1.0 GB)
 
- ┣ 📜.gitattributes                        # git-lfs 관리 모듈
+ ┣ 📜.gitattributes                        # git-lfs managing
  ┣ 📜.gitignore
  ┣ 📜config.py                             # config
  ┣ 📜LICENSE
