@@ -4,7 +4,8 @@
 
 <br> 
 
-## TASK: Multi-category(8 classes) Korean News Topic Classifier 한글 뉴스 토픽 다중 분류 모델 <Br>
+## TASK: Multi-category(8 classes) Korean News Topic Classifier 
+한글 뉴스 토픽 다중 분류 모델 <Br>
 - Perform a simple task to compare the performance of KO-BERT and implementations of BERT in different frameworks <br>
 - FrameWork: `PyTorch`, `APACHE MXNET GluonNLP` and `Hugging-Face` for modeling, `Scikit-Learn` to calculate evaluation metric.
 - Pre-trained model: [`KO-BERT`](https://github.com/SKTBrain/KoBERT), `BERT`, [`SBERT`](https://www.sbert.net/)
@@ -108,13 +109,6 @@ optional arguments:
 <br>
 <br>
 
-## Remark
-- *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
-- If it is used in actual service, some more tricks or experiments may be required. but as mentioned above, it is expected that the service can be maintained satisfactorily if applied in the same way with the heuristic method. There may be considerations such as continuous learning.
-<!-- - *This is just a toy project! please enjoy it!* <br>
-![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
-<br>
-
 ## Outline
 - **Problem Definition:** 
 <br> Create a model that classifies articles into the following 8 categories with the title and body as input.
@@ -182,8 +176,7 @@ All model architecture and learning conditions in the whole pipeline were fixed 
 ## Experiments
 
 
-- 본 실험 아이디어를 위해 참고한 논문들은 없으나, 후향적 분석과정에서 비슷한 컨셉의 논문들을 발견하여 `References`에 기재함.
-- 본 실험들은 한국어를 통한 실질적인 태스크 적용시에 참고용으로 수행.<br><br>
+
 
 - 실험은 크게 다음 4가지 가설을 확인하기 위하여 설계되었음. <br>
   1) 한글 기사의 본문, 제목, 본문과 제목을 통한 분류 성능의 차이 확인하고자 설계됨 - `MODE1~MODE3`
@@ -193,6 +186,11 @@ All model architecture and learning conditions in the whole pipeline were fixed 
 
 <br>
 <br>
+
+
+<details>
+<summary> See detail</summary>
+
 
 The Mode 1, Mode 2, and Mode 3 experiments were designed to see how well a subject could classify 8 topics into the body and headlines of a news article.
   - `MODE 1`: It learns data containing only the body of news articles as input.
@@ -207,6 +205,8 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilBER
   - `MODE 4`: Cluster information generated from SBERT, a multilingual model, is used as model input, and this experiment used the mxnet framework in the same way as Modes 1 to 3.
   - `MODE 5`: Clustering information generated from SBERT was input to the initial layer using the PyTorch framework. The results of this experiment may be slightly different from Modes 1 to 4, so they are not described.
     - However, as in Mode 4, it was confirmed through several iterations that almost similar accuracy can be reached faster if you have cluster information generated from SBERT.
+
+</details>
 
 
 - You can see whole experiments result in [`experments/exp.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp.md) 
@@ -297,6 +297,11 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
     <img src="./data/imgs/cluster16.png" width="450" height='200'><br>
     <img src="./data/imgs/cluster32.png" width="900" height='200'><br>
     *Fig 5. 클러스터별 Ground Truth Label의 분포. 위에서부터 아래 순서로 8, 16, 32개의 cluster로 군집화한 결과, 파란 밴드가 Cluster의 경계를 의미하며, 밴드 사이(클러스터별) Ground Truth Category의 분포정도를 표시함.*
+
+    <details>
+    <summary> See detail</summary>
+
+
     - SBERT로 사전에 군집에 대한 정보를 이식하여, KO-BERT의 fine-tunning을 진행하였는데, EXP8부터 EXP11까지 8개(`EXP8`)부터 64개(`EXP11`)까지 군집에 대한 수를 변경하여 봄. (64개의 경우 유의미한 차이가 없으므로 클러스터별 Ground Truth Label의 분포 시각화를 생략)
     - 실험결과는 기대와 동일하게 8개의 군집의 경우, 군집이 충분히 유사한 기사들을 묶어두지 못하였고(클러스터의 수가 너무 적음),  32개 이상으로 과하게 군집화하였을 경우, 너무 많은 군집의 수로 인해 모델 학습에 좋지 않은 영향을 미친 것으로 보임.
     - SBERT로 생성된 토큰의 유사도를 임베딩해주는 것이 KO-BERT fine-tunning에 영향을 줄 수 있는지 확인하는 목적이였으므로, 추가적인 최적 군집수를 도출은 불요.
@@ -304,6 +309,9 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
     - `EXP4`,`EXP11`의 결과와 학습 양상이 비슷하므로 너무 군집의 수가 많은 EXP11에서는 KO-BERT의 미세조정에 SBERT로부터 생성된 Cluster정보를 Representation으로 사용하지 않은 것으로 추정함. 
     - `MXNET` 프레임워크에서는 인풋 데이터에 군집에 대한 정보를 삽입하는 것으로 구현하였고, `PyTorch` 프레임워크에서는 initial layer에 군집에 대한 정보를 [CLS] 토큰에 임베딩하여 initial hidden layer에 정보를 삽입하였으며, 프레임워크와 상관없이 조금 더 빠르게, 높은 성능에 도달할 수 있는 것을 확인함.
       
+
+    </details>
+
   <br>
   <br>
   
@@ -315,9 +323,16 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
 
   #### **2. SBERT로부터 생성된 토큰 시각화** <br>
 
+  <details>
+  <summary> See detail</summary>
+
   Multilingual BERT Embedding Space에 대한 연구[[10]](https://aclanthology.org/2022.findings-acl.103.pdf)와 Recommender Systems에서의 Embedding Space에 대한 연구[[11]](https://arxiv.org/abs/2105.08908)와 비슷하게 Token이 조금 더 Isotropic한 분포를 보이는 것이 좋은 성능을 나타낸 것을 확인할 수 있었다. 본 레포지토리에서 토큰 시각화에 사용한 SBERT 역시 Multilingual BERT이므로 상기[10]의 논문과 비슷한 환경에서의 실험이라고 가정하는 것에 큰 무리가 없을 것으로 판단하였다. <br> <br>제목으로부터 생성된 Embedding Space에서의 Token의 분포가 조금 더 isotropic한 것을 확인할 수 있었으며, 실제로 `EXP6`(기사의 제목만으로 학습)과 `EXP7`(기사의 본문만으로 학습)의 결과를 보면 Accuracy `0.8269`와 `0.8864`로 약 `0.595` 더 높은 정확도를 보이는 것을 확인할 수 있었다. 
   <br><br>
   결과적으로 BERT의 fine-tunning 태스크 이전에 Low Dimension(2DIM or 3DIM) Space로 시각화하여 조금 더 isotropic token 분포를 갖는 데이터셋이나 전처리 방법을 찾는 것이 조금 더 좋은 모델 학습 결과를 보일 수 있을 수 있음을 시사한다. <br><br>
+
+  </details>
+
+
   2-1 기사의 제목으로부터 생성된 토큰 시각화
   <img src="./data/imgs/title_token_vis.png" width="1000"><br>
   *Fig 6. Visualization of embedded tokens from SBERT for title of Korean articles*<br><br>
@@ -448,14 +463,23 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 <br>
 
 
-#### * About `mxnet` and `PyTorch` Framework
-- 커뮤니티와 편의성, 이슈 없는 안정성 등 거의 모든 면에서 PyTorch가 이점이 있음.
-
-#### * About `mxnet` install (numpy version conflict)
+#### About `Hugging-Face`, `mxnet gluonNLP` and `PyTorch` Framework
 
   <details>
   <summary> See detail</summary>
 
+- 다양하고 우수한 기능을 제공해주었습니다. BERT의 특이한 인풋을 처리하는 순서 및 추상화 정도가 약간씩 달랐습니다. 
+- Hugging Face가 highly-encapsulated 되어있음에도 불구하고, 더 빠르고 간편하게 모델을 수정하고, 레이어에 접근할 수 있다는 점이 놀라웠습니다.
+- mxnet gluon, pytorch, hugginf-face 순으로 커뮤니티가 활발하고, 다양한 접근을 위한 좋은 프로젝트들이 있는 것 같았습니다. hugginf-face가 모델 관리 및 hidden layer 접근 및 구조 변형도 조금 더 용이하다고 느꼈습니다.
+
+</details>
+
+<br>
+
+#### About `mxnet` install (numpy version conflict)
+
+  <details>
+  <summary> See detail</summary>
 
 - If you have a problem in the process of installing `mxnet`, you need to use `python=<3.7.0`.
 - Any other options can not solve the numpy version conflict problem while `pip install mxnet`. 
@@ -476,7 +500,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 
 
-#### * About KO-BERT version conflict
+#### About KO-BERT version conflict
 
   <details>
   <summary> See detail</summary>
@@ -498,7 +522,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 <br>
 
-#### * About random initialization in mxnet
+#### About random initialization in mxnet
 
 <details>
 <summary> See detail</summary>
@@ -518,7 +542,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 <br>
 
-#### * About Tokenizer Error
+#### About Tokenizer Error
 
 <details>
 <summary> See detail</summary>
@@ -537,7 +561,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 <br>
 
-#### * About Korean NLP Models
+#### About Korean NLP Models
 
 
 <details>
@@ -608,3 +632,11 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 #### Further Reading...
 [1] PyTorch CRF https://github.com/kmkurn/pytorch-crf
+
+
+## Remark
+- *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
+- If it is used in actual service, some more tricks or experiments may be required. but as mentioned above, it is expected that the service can be maintained satisfactorily if applied in the same way with the heuristic method. There may be considerations such as continuous learning.
+<!-- - *This is just a toy project! please enjoy it!* <br>
+![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
+<br>
