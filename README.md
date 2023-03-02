@@ -95,7 +95,7 @@ $ python main.py
 
 <Br>
 
-You use this optional args as below.
+You can use follow optional args.
 ```
 for gluon weight inference only
 
@@ -481,7 +481,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 - recommendation: `python<=3.7.0` <br>
 **Some Tips**
   - IndexError: Target 2 is out of bounds. => num_classes error (please check)
-  - broken pipe error => num_workers error, if you use CPU => check your num of threads, else remove args numworkers.
+  - broken pipe error => num_workers error, if you used CPU => check your num of threads, else remove args numworkers.
   - If you can not download torch KO-BERT weight with urlib3 or boto3 library error message include 'PROTOCOL_TLS' issue, This is an error related to Amazon aws server download. Thus, => use huggingface interface https://github.com/SKTBrain/KoBERT/tree/master/kobert_hf
   - If you have other questions, please send me an e-mail. *All is Well!! Happy Coding!!*
   - 이슈는 issue를 생성해주시거나, 메일로 문의주시기 바랍니다.
