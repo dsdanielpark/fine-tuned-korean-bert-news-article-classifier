@@ -134,7 +134,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
     - However, as in Mode 4, it was confirmed through several iterations that almost similar accuracy can be reached faster if you have cluster information generated from SBERT.
 
 
-- You can see whole experiments result in [`experments/exp.md`](https://github.com/DSDanielPark/news-article-classification-using-KO-BERT/blob/main/experiments/exp.md) 
+- You can see whole experiments result in [`experments/exp.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp.md) 
 - In the case of EXP2 and EXP9, it was repeatedly performed to track and observe the learning rate, confirming similar learning patterns.
 
   | No | Condition | Best Test Accuracy | Epoch | 
