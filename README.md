@@ -46,7 +46,7 @@
  ┃ ┣ 📜exp.md
  ┃ ┗ 📜exp_metric.md
  
- ┣ 📂notebooks                             # notebook will provide
+ ┣ 📂notebooks                             # notebook will NOT provide
 
  ┣ 📂src
  ┃ ┣ 📂kobert                              # SKT KOBERT
