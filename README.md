@@ -25,7 +25,7 @@
   - GluonNLP의 경우, 전처리 단계에서 군집에 대한 정보를 인풋에 삽입하여 비교
 ### 본 레포지토리는
 - MXNet GluonNLP BERT weight 파일을 git-lfs을 통해서 제공하고, `data/sample.csv`를 제공합니다. 
-- 추후 범용적으로 사용할 수 있는 패키지 pypi를 통한 배포합니다. 
+- 추후 범용적으로 사용할 수 있는 패키지 pypi를 통해 배포합니다. 
 - To-Do: Hugging Face 프레임워크, XAI, GPT2, GPT3, BERT Pipeline etc.
 
 
