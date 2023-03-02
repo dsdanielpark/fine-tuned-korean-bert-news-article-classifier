@@ -7,6 +7,7 @@ class Config:
     parser.add_argument('--data_path', default="./data/sample.csv")
     parser.add_argument('--save_path', default=None)
     parse = parser.parse_args()
+    parser.print_help()
     params = {
         'GLUON_WEIGHT_PATH': parse.gluon_weight_path,
         'SAVE_PATH': parse.save_path,
