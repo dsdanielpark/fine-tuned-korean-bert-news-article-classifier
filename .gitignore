@@ -1,8 +1,6 @@
 /data/test_set.csv
 /data/train_set.csv
 /notebooks
-main.py
-/config
 /result
 /model
 /dependencies
