@@ -1,0 +1,1 @@
+weights/ko-news-clf-gluon-weight.pth filter=lfs diff=lfs merge=lfs -text

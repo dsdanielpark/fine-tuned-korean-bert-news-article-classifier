@@ -1,3 +1,15 @@
+/data
+/notebooks
+main.py
+/config
+/result
+/model
+/dependencies
+/ref
+/experiments/experiment_weights
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -5,7 +17,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+data/*
 # Distribution / packaging
 .Python
 build/
@@ -127,3 +139,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+references/naver_review_classifications_gluon_kobert.ipynb
+references/naver_review_classifications_pytorch_kobert.ipynb
+weights/ko-news-clf-torch-weight.pth
