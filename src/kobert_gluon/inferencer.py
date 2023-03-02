@@ -38,7 +38,7 @@ def gluon_infer(model: object, data_iter: DataLoader, save_path:str, ctx=ctx) ->
         if save_path is not None:
             df_epocheval.to_csv(save_path, encoding='utf-8-sig')
         else:
-            print(f'Predicted news topic: {class_dict[predicted_y[0]]}')
+            print(f'>>> Predicted news topic: {class_dict[predicted_y[0]]}')
 
     return cls_dense_layers_val_list, predicted_y
 
