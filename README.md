@@ -16,7 +16,7 @@
 # TL ; DR
 ### Main Task: 한국어 뉴스 기사의 토픽(8개) 분류 모델(BERT Classifier) 생성
 ### Sub Task 
-- (프레임워크 비교) Gluon NLP, PyTorch, Hugging-Face 프레임워크의 BERT 모델 구현 비교
+- (프레임워크 비교) `GluonNLP`, `PyTorch`, `Hugging-Face` 프레임워크의 BERT 모델 구현 비교
 - (인풋 정보량에 따른 BERT Classifier의 성능 비교) 뉴스의 제목, 제목+본문, 본문을 인풋으로 사용하였을 경우의 모델 분류 성능 정량적 비교
 - (사전 군집화정보에 따른 모델 학습 속도 비교) Multilangual BERT(SBERT)를 통해 사전에 군집 정보를 주었을 경우, 모델의 학습 속도가 달라지는지 여부 비교
   - PyTorch의 경우, initial [CLS] 토큰에 정보를 임베딩하고
