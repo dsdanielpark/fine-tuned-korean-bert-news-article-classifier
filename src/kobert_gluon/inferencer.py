@@ -2,12 +2,12 @@ import pandas as pd
 import numpy as np
 import gluonnlp as nlp
 import mxnet as mx
-from models.gluon_model import BERTClassifier
+from gluon_kobert.model import BERTClassifier
 from torch.utils.data import DataLoader
 from kobert.mxnet_kobert import get_mxnet_kobert_model
 from kobert.mxnet_kobert import get_tokenizer
-from gluon_bert.dataloader import BERTDataset
-from preprocessor import NLPdata 
+from gluon_kobert.dataloader import BERTDataset
+from preprocess.processor import NLPdata 
 ctx = mx.cpu()
 
 
@@ -33,9 +33,12 @@ def gluon_infer(model: object, data_iter: DataLoader, save_path:str, ctx=ctx) ->
         if save_path is not None:
             df_epocheval.to_csv(save_path, encoding='utf-8-sig')
         else:
-            print(f'Predicted news topic: {predicted_y}')
+            print(f'Predicted news topic: {class_dict[predicted_y[0]]}')
 
     return cls_dense_layers_val_list, predicted_y
+
+
+
 
 
 if __name__ == "__main__":
@@ -49,5 +52,6 @@ if __name__ == "__main__":
     test_dataloader = mx.gluon.data.DataLoader(data_test, batch_size=int(batch_size/2))
     bert_base, vocab = get_mxnet_kobert_model(use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache")
     model = BERTClassifier(bert_base, num_classes=8, dropout=0.1)
-    model.load_parameters("./weights/ko-news-clf-gluon.pth")
-    cls_dense_layers_val_list, predicted_y = gluon_infer(model, test_dataloader, "test.csv", ctx=ctx) 
+    model.load_parameters("./weights/ko-news-clf-gluon-weight.pth")
+    # cls_dense_layers_val_list, predicted_y = gluon_infer(model, test_dataloader, "gloun_infer_result.csv", ctx=ctx)
+    cls_dense_layers_val_list, predicted_y = gluon_infer(model, test_dataloader, None, ctx=ctx) 

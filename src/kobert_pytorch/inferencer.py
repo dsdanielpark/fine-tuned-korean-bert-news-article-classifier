@@ -51,7 +51,6 @@ if __name__ == "__main__":
     bertmodel, vocab = get_pytorch_kobert_model(cachedir=".cache")
     tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    bertmodel, vocab = get_pytorch_kobert_model(cachedir=".cache")
     model = BERTClassifier(bertmodel,  dr_rate=0.5).to(device)
     dataset_test = NLPdata().TSVDdataset("./data/sample.csv", 'cleanBody', 'category', 'mode3')
     data_test = BERTDataset(dataset_test, 0, 1, tok, max_len, True, False)
