@@ -1,4 +1,4 @@
-# korean-news-topic-classification-using-KO-BERT(public)
+# Korean-news-topic-classification-using-KO-BERT(public)
 
 > 🚸 **Be careful when cloning this repo**: It contains large NLP model weights. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
 
@@ -11,26 +11,110 @@
 - Duration: Jan 16,2023 - Jan 19,2023 (4days) <br>
 - Author: [Daniel Park, South Korea](https://github.com/DSDanielPark) <br>
 
-<br><Br>
-## Related Packages
-#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): pd.DataFrame을 인풋으로, 빠르고 쉽게 시각화할 수 있는 패키지
-```bash
-$ pip install quickshow
-```
-- 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 업데이트할 예정입니다.
+<br>
+
+# TL ; DR
+0. Main Task
+    - 한국어 뉴스 기사의 토픽(8개) 분류 모델(BERT Classifier) 생성
+    
+1. Sub Task 
+    - (프레임워크 비교) Gluon NLP, PyTorch, Hugging-Face 프레임워크의 BERT 모델 구현 비교
+
+    - (인풋 정보량에 따른 BERT Classifier의 성능 비교) 뉴스의 제목, 제목+본문, 본문을 인풋으로 사용하였을 경우의 모델 분류 성능 정량적 비교
+    
+    - (사전 군집화정보에 따른 모델 학습 속도 비교) Multilangual BERT(SBERT)를 통해 사전에 군집 정보를 주었을 경우, 모델의 학습 속도가 달라지는지 여부 비교
+      - PyTorch의 경우, initial [CLS] 토큰에 정보를 임베딩하고
+
+      - GluonNLP의 경우, 전처리 단계에서 군집에 대한 정보를 인풋에 삽입하여 비교
+
+2. 본 레포지토리에서 제공하는 것
+    - MXNet GluonNLP BERT weight 파일을 git-lfs을 통해서 제공하고, `data/sample.csv`를 제공합니다. 
+
+3. 배포
+    - 추후 범용적으로 사용할 수 있는 패키지 pypi를 통한 배포 진행
+
+<br>    
+
+4. To-Do: Hugging Face 프레임워크, XAI, GPT2, GPT3, BERT Pipeline etc.
 
 
 <br><br><br>
 
+## Repository folder tree
+```
+📦fine-tuned-korean-BERT-news-article-classifier 
+ ┣ 📂data
+ ┃ ┣ 📂csv
+ ┃ ┣ 📂imgs
+ ┃ ┣ 📜sample.csv                          # sample data will provide
+ ┃ ┣ 📜test_set.csv
+ ┃ ┗ 📜train_set.csv
+ 
+ ┣ 📂experiments                           # dummy for experiments
+ ┃ ┣ 📂experiment_weights
+ ┃ ┣ 📜exp.md
+ ┃ ┗ 📜exp_metric.md
+ 
+ ┣ 📂notebooks                             # notebook will provide
+
+ ┣ 📂src
+ ┃ ┣ 📂kobert                              # SKT KOBERT
+ ┃ ┣ 📂kobert_gluon                        # gloun nlp 프레임워크 실험을 위해 생성한 모듈
+ ┃ ┣ 📂kobert_hf                           # SKT KOBERT
+ ┃ ┣ 📂kobert_pytorch                      # torch bert 실험을 위해 생성한 모듈
+ ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 클래스
+
+ ┣ 📂weights
+ ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # provide throught git-lfs (0.3 GB)
+ ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will not provide (>1.0 GB)
+
+ ┣ 📜.gitattributes                        # git-lfs 관리 모듈
+ ┣ 📜.gitignore
+ ┣ 📜config.py                             # config
+ ┣ 📜LICENSE
+ ┣ 📜main.py                               # main.py (gluon inference만 제공)
+ ┣ 📜README.md
+ ┗ 📜requirements.txt
+```
+
+
+
+
+<br><Br>
+## [Optional] Related Packages
+#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): pandas.DataFrame을 인풋으로 쉽고 빠르게 시각화할 수 있는 패키지
+```bash
+$ pip install quickshow
+```
+- 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 제가 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 업데이트할 예정입니다.
+
+
+<br><br>
+
 ## Quick Start
+본 레포지토리는 highly encapsulation된 gluon weight bert classifier의 inference class를 제공합니다.
 ```
 $ git clone https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier.git
 $ cd fine-tuned-korean-BERT-news-article-classifier
 $ pip install -e .
+$ python main.py
+>>> Predicted news topic: international
 ```
 
+
 <Br>
-Code will be open after data de-identification and refactoring.
+
+You use this optional args as below.
+```
+for gluon weight inference only
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --gluon_weight_path GLUON_WEIGHT_PATH                        # glouon weight file path
+  --data_path DATA_PATH                                        # input csv data path
+  --save_path SAVE_PATH                                        # save csv full path
+```
+
 <br>
 <br>
 
