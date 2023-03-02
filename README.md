@@ -145,7 +145,7 @@ optional arguments:
 
   <br>
 
-- **Input Features list:**
+- **BERT Features list:**
   1. *input_ids* - are the ids associated with each token as per BERT vocabulary.
   2. *input_mask* - differentiate between padding and real tokens.
   3. *Segment_ids* - will be a list of 0’s, as in classification task there is only a single text.
