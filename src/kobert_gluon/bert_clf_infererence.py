@@ -12,18 +12,23 @@ from kobert.mxnet_kobert import get_mxnet_kobert_model
 from kobert.mxnet_kobert import get_tokenizer
 from dataloader import BERTDataset
 from preprocess.processor import NLPdata 
-ctx = mx.cpu()
 
 
-class GluonBERTClassifierInferencer(BERTClassifier):
-    def __init__(self, bert_base, cfg, model_path, data_iter, save_path, device, prefix=None, params=None):
+class GluonBERTClassifierInferencer(BERTClassifier, NLPdata):
+    def __init__(self, cfg, model_path, data_path, save_path, prefix=None, params=None):
         super(BERTClassifier, self).__init__(prefix=prefix, params=params)
-        self.cfg = cfg # config for training: see class Config
-        self.model = BERTClassifier(bert_base, num_classes=8, dropout=0.1)
+        super(NLPdata).__init__()
+        self.cfg = cfg 
+        self.device = mx.cpu()
+        self.bert_base, self.vocab = get_mxnet_kobert_model(use_decoder=False, use_classifier=False, ctx=mx.cpu(), cachedir=".cache")
+        self.tokenizer = get_tokenizer()
+        self.tok = nlp.data.BERTSPTokenizer(self.tokenizer, self.vocab, lower=False)
+        self.model = BERTClassifier(self.bert_base, num_classes=8, dropout=0.1)
         self.model.load_parameters(model_path)
-        self.data_iter = data_iter # iterator to load data
+        self.dataset_test = NLPdata().TSVDdataset(data_path, 'cleanBody', 'category', 'mode2', None)
+        self.data_test = BERTDataset(self.dataset_test, 0, 1, self.tok, cfg['max_len'], True, False)
+        self.data_iter = mx.gluon.data.DataLoader(self.data_test, batch_size=int(cfg['batch_size']/2))
         self.save_path = save_path
-        self.device = device
 
 
     def infer(self) -> (list, list):
@@ -53,16 +58,7 @@ class GluonBERTClassifierInferencer(BERTClassifier):
         return cls_dense_layers_val_list, predicted_y
 
 
-# if __name__ == "__main__":
-#     cfg = {'max_len': 128, 'batch_size':32}
-    
-#     bert_base, vocab = get_mxnet_kobert_model(use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache")
-#     tokenizer = get_tokenizer()
-#     tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
-
-#     dataset_test = NLPdata().TSVDdataset("./data/sample.csv", 'cleanBody', 'category', 'mode2', None)
-#     data_test = BERTDataset(dataset_test, 0, 1, tok, cfg['max_len'], True, False)
-#     test_dataloader = mx.gluon.data.DataLoader(data_test, batch_size=int(cfg['batch_size']/2))
-
-#     gluon_bert_inferencer = GluonBERTClassifierInferencer(bert_base, cfg, "./weights/ko-news-clf-gluon-weight.pth", test_dataloader, None, ctx)
-#     gluon_bert_inferencer.infer()
+if __name__ == "__main__":
+    cfg = {'max_len': 128, 'batch_size':32}
+    gluon_bert_inferencer = GluonBERTClassifierInferencer(cfg, "./weights/ko-news-clf-gluon-weight.pth", "./data/sample.csv", None)
+    gluon_bert_inferencer.infer()

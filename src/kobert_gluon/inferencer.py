@@ -10,7 +10,6 @@ import mxnet as mx
 from model import BERTClassifier
 from torch.utils.data import DataLoader
 from kobert.mxnet_kobert import get_mxnet_kobert_model
-from kobert.mxnet_kobert import get_mxnet_kobert_model
 from kobert.mxnet_kobert import get_tokenizer
 from dataloader import BERTDataset
 from preprocess.processor import NLPdata 
