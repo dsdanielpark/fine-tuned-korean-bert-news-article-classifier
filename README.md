@@ -2,7 +2,8 @@
 
 > 🚸 **Be careful when cloning this repo**: It contains large NLP model weights. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
 
-### TASK: Multi-category(8 classes) Korean News Topic Classifier 한글 뉴스 토픽 다중 분류 모델 <Br>
+<br> 
+## TASK: Multi-category(8 classes) Korean News Topic Classifier 한글 뉴스 토픽 다중 분류 모델 <Br>
 - Perform a simple task to compare the performance of KO-BERT and implementations of BERT in different frameworks <br>
 - FrameWork: `PyTorch`, `APACHE MXNET GluonNLP` and `Hugging-Face` for modeling, `Scikit-Learn` to calculate evaluation metric.
 - Pre-trained model: [`KO-BERT`](https://github.com/SKTBrain/KoBERT), `BERT`, [`SBERT`](https://www.sbert.net/)
