@@ -51,14 +51,14 @@
  ┣ 📂notebooks                             # for developing features (will NOT be provided)
 
  ┣ 📂src
- ┃ ┣ 📂kobert                              # SKT KOBERT
- ┃ ┣ 📂kobert_gluon                        # gloun nlp 프레임워크 실험을 위한 모듈
- ┃ ┣ 📂kobert_hf                           # SKT KOBERT
+ ┃ ┣ 📂kobert                              # SKT KOBERT / references[2, 3]
+ ┃ ┣ 📂kobert_gluon                        # gloun nlp 실험을 위한 모듈
+ ┃ ┣ 📂kobert_hf                           # SKT KOBERT / references[2, 3]
  ┃ ┣ 📂kobert_pytorch                      # torch bert 실험을 위한 모듈
- ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 클래스
+ ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 모듈
 
  ┣ 📂weights
- ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # will be provided throught git-lfs (0.3 GB), MODE==2
+ ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # will be provided throught git-lfs (>0.3 GB), MODE==2
  ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will NOT be provided (>1.0 GB), MODE==2
 
  ┣ 📜.gitattributes                        # git-lfs managing
