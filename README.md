@@ -10,7 +10,7 @@
 
 Overview: Repository class diagram (`packages.dot`)
 - For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
-- `src/kobert`, `src/kobert_hf` (red nodes in graphviz)
+- `src/kobert`, `src/kobert_hf` (Red nodes in graphviz)
 
 ![](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram2.png)
 
