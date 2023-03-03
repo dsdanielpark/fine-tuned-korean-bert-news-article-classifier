@@ -1,0 +1,15 @@
+digraph "classes" {
+charset="utf-8"
+rankdir=BT
+"0" [label="AwsS3Downloader", shape="record"];
+"1" [label="BERTClassifier", shape="record"];
+"2" [label="BERTClassifier", shape="record"];
+"3" [label="BERTDataset", shape="record"];
+"4" [label="BERTDataset", shape="record"];
+"5" [label="GluonBERTClassifierEvaluator", shape="record"];
+"6" [label="GluonBERTClassifierInferencer", shape="record"];
+"7" [label="KoBERTTokenizer", shape="record"];
+"8" [label="NLPdata", shape="record"];
+"5" -> "8" [arrowhead="empty", arrowtail="none"];
+"6" -> "8" [arrowhead="empty", arrowtail="none"];
+}
