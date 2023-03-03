@@ -83,7 +83,7 @@ $ pip install quickshow
 <br><br>
 
 ## Quick Start
-본 레포지토리는 highly encapsulation된 gluon weight bert classifier의 inference class를 제공합니다.
+본 레포지토리는 highly encapsulated inference class for bert classifier를 포함합니다.
 ```
 $ git clone https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier.git
 $ cd fine-tuned-korean-BERT-news-article-classifier
