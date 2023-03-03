@@ -24,7 +24,7 @@
   - PyTorch의 경우, initial [CLS] 토큰에 정보를 임베딩하고
   - GluonNLP의 경우, 전처리 단계에서 군집에 대한 정보를 인풋에 삽입하여 비교
 ### 본 레포지토리는
-- 'fine-tuned MXNet GluonNLP BERT Classifier weight file(`weights/ko-news-clf-gluon-weight.pth`)'을 `git-lfs`을 통해서 제공하고, 인퍼런스용 샘플 데이터 `data/sample.csv`를 제공합니다. 
+- 'Fine-tuned MXNet GluonNLP BERT Classifier weight file(`weights/ko-news-clf-gluon-weight.pth`)'을 `git-lfs`을 통해서 제공하고, 'Sample csv file for inference(`data/sample.csv`)'를 제공합니다. 
 - 추후 범용적으로 사용할 수 있는 패키지 pypi를 통해 배포합니다. 
 - To-Do: Hugging Face 프레임워크, XAI, GPT2, GPT3, BERT Pipeline etc.
 
@@ -37,27 +37,27 @@
  ┣ 📂data
  ┃ ┣ 📂csv
  ┃ ┣ 📂imgs
- ┃ ┣ 📜sample.csv                          # sample data will provide
+ ┃ ┣ 📜sample.csv                          # for inference (project input)
  ┃ ┣ 📜test_set.csv
  ┃ ┗ 📜train_set.csv
  
- ┣ 📂experiments                           # dummy for experiments
+ ┣ 📂experiments                           # dummies for experiments
  ┃ ┣ 📂experiment_weights
  ┃ ┣ 📜exp.md
  ┃ ┗ 📜exp_metric.md
  
- ┣ 📂notebooks                             # notebook will NOT provide
+ ┣ 📂notebooks                             # for developing features (will NOT be provided)
 
  ┣ 📂src
  ┃ ┣ 📂kobert                              # SKT KOBERT
- ┃ ┣ 📂kobert_gluon                        # gloun nlp 프레임워크 실험을 위해 생성한 모듈
+ ┃ ┣ 📂kobert_gluon                        # gloun nlp 프레임워크 실험을 위한 모듈
  ┃ ┣ 📂kobert_hf                           # SKT KOBERT
- ┃ ┣ 📂kobert_pytorch                      # torch bert 실험을 위해 생성한 모듈
+ ┃ ┣ 📂kobert_pytorch                      # torch bert 실험을 위한 모듈
  ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 클래스
 
  ┣ 📂weights
- ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # provide throught git-lfs (0.3 GB), MODE==2
- ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will NOT provide (>1.0 GB), MODE==2
+ ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # will be provided throught git-lfs (0.3 GB), MODE==2
+ ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will NOT be provided (>1.0 GB), MODE==2
 
  ┣ 📜.gitattributes                        # git-lfs managing
  ┣ 📜.gitignore
