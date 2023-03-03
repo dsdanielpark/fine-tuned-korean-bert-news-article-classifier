@@ -1,10 +1,20 @@
 # Korean-news-topic-classification-using-KO-BERT
 [![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
 ![Code convention](https://img.shields.io/badge/code%20convention-pep8-blue)
+![](https://img.shields.io/badge/linting-pylint-yellowgreen)
+
 
 > 🚸 **Be careful when cloning this repo**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
 
 <br> 
+
+Overview: Repository class diagram (`packages.dot`)
+- For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders.
+- `src/kobert`, `src/kobert_hf`
+
+![](fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
+
+<br>
 
 ## TASK: Multi-category(8 classes) Korean News Topic Classifier 
 한글 뉴스 토픽 다중 분류 모델 <Br>
