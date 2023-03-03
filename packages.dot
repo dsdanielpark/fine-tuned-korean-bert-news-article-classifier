@@ -1,21 +1,22 @@
 digraph "packages" {
 charset="utf-8"
 rankdir=BT
+style=filled
 "0" [label="src", shape="box"];
-"1" [label="src.kobert", shape="box"];
-"2" [label="src.kobert.mxnet_kobert", shape="box"];
-"3" [label="src.kobert.onnx_kobert", shape="box"];
-"4" [label="src.kobert.pytorch_kobert", shape="box"];
-"7" [label="src.kobert.utils.utils", shape="box"];
+"1" [label="src.kobert", shape="box", color=red];
+"2" [label="src.kobert.mxnet_kobert", shape="box", color=red];
+"3" [label="src.kobert.onnx_kobert", shape="box", color=red];
+"4" [label="src.kobert.pytorch_kobert", shape="box", color=red];
+"7" [label="src.kobert.utils.utils", shape="box", color=red];
 "8" [label="src.kobert_gluon", shape="box"];
 "9" [label="src.kobert_gluon.bert_clf_infererence", shape="box"];
 "10" [label="src.kobert_gluon.dataloader", shape="box"];
 "11" [label="src.kobert_gluon.evaluator", shape="box"];
 "12" [label="src.kobert_gluon.inferencer", shape="box"];
 "13" [label="src.kobert_gluon.model", shape="box"];
-"14" [label="src.kobert_hf", shape="box"];
-"15" [label="src.kobert_hf.kobert_tokenizer", shape="box"];
-"16" [label="src.kobert_hf.kobert_tokenizer.kobert_tokenizer", shape="box"];
+"14" [label="src.kobert_hf", shape="box", color=red];
+"15" [label="src.kobert_hf.kobert_tokenizer", shape="box", color=red];
+"16" [label="src.kobert_hf.kobert_tokenizer.kobert_tokenizer", shape="box", color=red];
 "17" [label="src.kobert_pytorch", shape="box"];
 "18" [label="src.kobert_pytorch.dataloader", shape="box"];
 "19" [label="src.kobert_pytorch.inferencer", shape="box"];
@@ -49,4 +50,5 @@ rankdir=BT
 "14" -> "15" [arrowhead="open", arrowtail="none"];
 "1" -> "14" [arrowhead="open", arrowtail="none"];
 "18" -> "23" [arrowhead="open", arrowtail="none"];
+"10" -> "23" [arrowhead="open", arrowtail="none"];
 }
