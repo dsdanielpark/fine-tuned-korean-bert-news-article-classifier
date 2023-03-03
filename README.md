@@ -468,9 +468,9 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
   <details>
   <summary> See detail</summary>
 
-- 다양하고 우수한 기능을 제공해주었습니다. BERT의 특이한 인풋을 처리하는 순서 및 추상화 정도가 약간씩 달랐습니다. 
-- Hugging Face가 highly-encapsulated 되어있음에도 불구하고, 더 빠르고 간편하게 모델을 수정하고, 레이어에 접근할 수 있다는 점이 놀라웠습니다.
-- mxnet gluon, pytorch, hugginf-face 순으로 커뮤니티가 활발하고, 다양한 접근을 위한 좋은 프로젝트들이 있는 것 같았습니다. hugginf-face가 모델 관리 및 hidden layer 접근 및 구조 변형도 조금 더 용이하다고 느꼈습니다.
+- 3가지 프레임워크 모두 다양하고 우수한 기능을 제공해주었습니다. 그러나 전체 파이프라인에서 BERT의 인풋을 처리하는 순서 및 추상화 정도가 약간씩 달랐습니다. 
+- Huggingface가 highly-encapsulated 되어있음에도 불구하고, 더 빠르고 간편하게 모델을 수정하고, 레이어에 접근할 수 있다는 점이 놀라웠습니다.
+- PyTorch, Huggingface,MXNet GluonNLP 순으로 커뮤니티가 활발하고, 다양한 접근을 위한 좋은 프로젝트들이 있는 것 같았습니다. huggingface가 모델 관리 및 hidden layer 접근 및 구조 변형도 조금 더 용이한 것 같다고 생각하였으며, 추후 진행되는 GPT 프로젝트는 huggingface의 모듈을 위주로 사용할 예정입니다.
 
 </details>
 
