@@ -73,11 +73,11 @@
 
 <br><Br>
 ## [Optional] Related Packages
-#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): pandas.DataFrame을 인풋으로 쉽고 빠르게 시각화할 수 있는 패키지
+#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
 ```bash
 $ pip install quickshow
 ```
-- 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 제가 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 업데이트할 예정입니다.
+- 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 계속 업데이트할 예정입니다.
 
 
 <br><br>
