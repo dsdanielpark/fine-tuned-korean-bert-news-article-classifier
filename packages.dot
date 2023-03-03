@@ -6,8 +6,6 @@ rankdir=BT
 "2" [label="src.kobert.mxnet_kobert", shape="box"];
 "3" [label="src.kobert.onnx_kobert", shape="box"];
 "4" [label="src.kobert.pytorch_kobert", shape="box"];
-"5" [label="src.kobert.utils", shape="box"];
-"6" [label="src.kobert.utils.aws_s3_downloader", shape="box"];
 "7" [label="src.kobert.utils.utils", shape="box"];
 "8" [label="src.kobert_gluon", shape="box"];
 "9" [label="src.kobert_gluon.bert_clf_infererence", shape="box"];
@@ -33,22 +31,22 @@ rankdir=BT
 "1" -> "4" [arrowhead="open", arrowtail="none"];
 "1" -> "7" [arrowhead="open", arrowtail="none"];
 "8" -> "9" [arrowhead="open", arrowtail="none"];
-"8" -> "10" [arrowhead="open", arrowtail="none"];
 "8" -> "11" [arrowhead="open", arrowtail="none"];
 "8" -> "12" [arrowhead="open", arrowtail="none"];
-"8" -> "13" [arrowhead="open", arrowtail="none"];
 "9" -> "23" [arrowhead="open", arrowtail="none"];
 "11" -> "23" [arrowhead="open", arrowtail="none"];
 "12" -> "10" [arrowhead="open", arrowtail="none"];
 "12" -> "13" [arrowhead="open", arrowtail="none"];
 "15" -> "16" [arrowhead="open", arrowtail="none"];
-"17" -> "18" [arrowhead="open", arrowtail="none"];
+"0" -> "17" [arrowhead="open", arrowtail="none"];
 "17" -> "19" [arrowhead="open", arrowtail="none"];
-"17" -> "20" [arrowhead="open", arrowtail="none"];
 "17" -> "21" [arrowhead="open", arrowtail="none"];
 "19" -> "18" [arrowhead="open", arrowtail="none"];
 "19" -> "20" [arrowhead="open", arrowtail="none"];
 "21" -> "18" [arrowhead="open", arrowtail="none"];
 "21" -> "20" [arrowhead="open", arrowtail="none"];
 "22" -> "23" [arrowhead="open", arrowtail="none"];
+"14" -> "15" [arrowhead="open", arrowtail="none"];
+"1" -> "14" [arrowhead="open", arrowtail="none"];
+"18" -> "23" [arrowhead="open", arrowtail="none"];
 }
