@@ -91,7 +91,7 @@ $ pip install quickshow
 ```
 - 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 계속 업데이트할 예정입니다.
 
-#### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP tokenizer.
+#### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
 ```bash
 $ pip install corpusshow
 ```
