@@ -91,6 +91,12 @@ $ pip install quickshow
 ```
 - 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 계속 업데이트할 예정입니다.
 
+#### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP tokenizer.
+```bash
+$ pip install corpusshow
+```
+- corpusshow[코뿔:소] 패키지는 Sentence Transformer 기반으로 코퍼스를 클러스터링해서 시각화하거나 레이블과 함께 Embedded Sentence를 쉽고 빠르게 시각화할 수 있습니다.
+
 
 <br><br>
 
