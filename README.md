@@ -4,7 +4,19 @@
 ![](https://img.shields.io/badge/linting-pylint-yellowgreen)
 
 
-> 🚸 **Be careful when cloning this repo**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
+> **Be careful when cloning this repo**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
+
+ Fine-Tuned Korean BERT News Article Classifier
+
+### Abstract:
+With the growing importance of natural language processing in the field of artificial intelligence, the development of high-performance models for text classification tasks has become increasingly crucial. In this study, I propose a fine-tuned Korean BERT (Bidirectional Encoder Representations from Transformers) news article classifier, which is capable of accurately classifying Korean news articles into one of eight pre-defined categories. I compare the performance of KO-BERT and BERT implementations in different frameworks, including PyTorch, APACHE MXNET GluonNLP, and Hugging-Face, using the Korean News Topic Classification Dataset collected and provided privately by a specific company. My experimental results show that the fine-tuned KO-BERT model outperforms the BERT model, achieving an accuracy of 96.29%, which is a significant improvement compared to the previous state-of-the-art results. I also investigate the impact of pre-trained clustering information from SBERT (Sentence-BERT) on the fine-tuned KO-BERT model and show that it can further enhance the model's performance. My study demonstrates the effectiveness of fine-tuning pre-trained language models for text classification tasks and provides insights into the optimal use of clustering information in improving the 
+model's performance.
+
+<br>
+
+### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
+
+<br>
 
 ## Overview: Repository class diagram (`packages.dot`)
 - For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
