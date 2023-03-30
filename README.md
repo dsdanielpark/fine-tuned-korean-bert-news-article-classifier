@@ -20,6 +20,13 @@ model's performance.
 
 <br><br><br><br><br><br><br><br>
 
+# Overview
+- For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
+- `src/kobert`, `src/kobert_hf` (Red nodes in graphviz)
+
+![](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
+
+<br><br><br><br><br><br><br><br>
 
 # Contents
 - [TASK: Multi-category(8 classes) Korean News Topic Classifier](#task--multi-category-8-classes--korean-news-topic-classifier)
@@ -33,12 +40,6 @@ model's performance.
 - [Discussion](#discussion)
 - [References <Br>](#references--br-)
 
-
-# Overview
-- For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
-- `src/kobert`, `src/kobert_hf` (Red nodes in graphviz)
-
-![](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
