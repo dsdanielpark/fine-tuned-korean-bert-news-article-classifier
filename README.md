@@ -160,9 +160,8 @@ optional arguments:
 
 - **EDA:**
 <br> The dataset used for the analysis was of high quality and well-refined, hence no outliers were found. As the dataset was specifically processed by a Korean IT company, there was no need for further data preprocessing.
-<br>
-<img src="./data/imgs/fig.png" width="600"> <br> 
-  *Fig 1. The data distribution between the test and training sets was examined, and imbalance was not considered as it was feasible to collect additional data and train the model with it.*
+ <img src="./data/imgs/fig.png" width="600"> <br> 
+   *Fig 1. The data distribution between the test and training sets was examined, and imbalance was not considered as it was feasible to collect additional data and train the model with it.*
 
 <br>
 
