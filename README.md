@@ -9,11 +9,11 @@
  Fine-Tuned Korean BERT News Article Classifier
 
 ### Abstract:
-With the growing importance of natural language processing in the field of artificial intelligence, the development of high-performance models for text classification tasks has become increasingly crucial. In this study, I propose a fine-tuned Korean BERT (Bidirectional Encoder Representations from Transformers) news article classifier, which is capable of accurately classifying Korean news articles into one of eight pre-defined categories. I compare the performance of KO-BERT and BERT implementations in different frameworks, including PyTorch, APACHE MXNET GluonNLP, and Hugging-Face, using the Korean News Topic Classification Dataset collected and provided privately by a specific company. My experimental results show that the fine-tuned KO-BERT model outperforms the BERT model, achieving an accuracy of 96.29%, which is a significant improvement compared to the previous state-of-the-art results. I also investigate the impact of pre-trained clustering information from SBERT (Sentence-BERT) on the fine-tuned KO-BERT model and show that it can further enhance the model's performance. My study demonstrates the effectiveness of fine-tuning pre-trained language models for text classification tasks and provides insights into the optimal use of clustering information in improving the 
-model's performance.
+With the growing importance of natural language processing in the field of artificial intelligence, the development of high-performance models for text classification tasks has become increasingly crucial. In this study, I propose a fine-tuned Korean BERT (Bidirectional Encoder Representations from Transformers) news article classifier, which is capable of accurately classifying Korean news articles into one of eight pre-defined categories. I compare the performance of KO-BERT and BERT implementations in different frameworks, including PyTorch, APACHE MXNET GluonNLP, and Hugging-Face, using the Korean News Topic Classification Dataset collected and provided privately by a specific company. My experimental results show that the fine-tuned KO-BERT model outperforms the BERT model, achieving an accuracy of 88.95%. I also investigate the impact of pre-trained clustering information from SBERT (Sentence-BERT) on the fine-tuned KO-BERT model and show that it can further enhance the model's performance. My study demonstrates the effectiveness of fine-tuning pre-trained language models for text classification tasks and provides insights into the optimal use of clustering information in improving the model's performance.
 
 ##### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
 
+Summerized by chat-GPT4
 
 
 
@@ -155,7 +155,7 @@ optional arguments:
   |  | title |cleanBody|category|
   |---:|:---|:---|:---|
   |  0 | 보건복지부, 새해 청년과 지역이 함께 지역사회서비스를 개발제공해 사회서비스 고도화에 앞장서 | 보건복지부(장관 조규홍)는 2023년 청년사회서비스사업단(이하 ‘청년사업단’)선정 및 운영을 위해 오는 1월 27일(금)부터 2월 15일(수)까지 약 3주간 전국 17개 시도(광역 지자체)를 대상으로 청년사업단 공모를 실시한다고 밝혔습니다. ...(중략)... 본 기사는 깃허브 데이터 예시를 위해 보건복지부 보도자료를 참조하여 생성하였습니다. | society    |
-  |  1 | BTS, 10년간 빌보드 'Hot 100' 차트 1위곡 최다 보유 가수로 기록돼 | 방탄소년단(이하 "BTS")가 미국 빌보드 메인 싱글 차트 'HOT 100'의 정상에 가장 많이 오른 아티스트로 선정되었습니다. BTS가 미국 유명 가수 드레이크나 아리아나 그란데 등을 제치고, 메인 싱글 차트 핫 100에 올라 다시 한번 K-POP의 위상을 세상에 떨쳤습니다. ...(중략)... BTS는 새로운 음악과 안무로 다시 컴백을 예고하고 있습니다. 이상 깃허브 뉴스 다니엘 기자였습니다. | international |
+
 
 <br>
 
