@@ -108,14 +108,14 @@ optional arguments:
 ```
 
 <br>
-<br>
+
 
 # Outline
 - **Problem Definition:** 
 <br> Create a model that classifies articles into the following 8 categories with the title and body as input.
 <br> `Categories` = ['society', 'politics', 'international', 'economy', 'sport', 'entertain', 'it', 'culture'] <br><br>
 - **Data Description:**
-<br> The Total 3,000 korean news dataset(Train: 2,100 articles, Test 900: articles, 7:3 split) consist of title, body and category columns. <br><br>
+<br> The Total 3,000 korean news dataset(Train: 2,100 articles, Test 900: articles, 7:3 split) consist of title, body and category columns. <br>
 
 
         ```
@@ -409,7 +409,83 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 <br>
 <br>
   
-# Install Issues [Optional]
+
+
+# References <Br>
+[1] GPT fine-tune https://www.philschmid.de/getting-started-setfit <br>
+[2] KO-GPT https://github.com/kakaobrain/kogpt <br>
+[3] KO-BERT https://sktelecom.github.io/project/kobert <br>
+`download` of kobert-base-v1 https://huggingface.co/gogamza/kobart-base-v1 <br>
+[4] Sentence-embedding https://github.com/UKPLab/sentence-transformers <br>
+[5] Multilingual SBERT https://www.sbert.net/examples/training/multilingual/README.html <br>
+[6] NLP gluon BERT documentation https://nlp.gluon.ai/model_zoo/bert/index.html
+<br>
+
+<details>
+<summary> See more..</summary>
+
+[7]
+  [Evaluation of Pretrained BERT Model by Using Sentence Clustering](https://aclanthology.org/2020.paclic-1.32) (Shibayama et al., PACLIC 2020)
+<Br>
+[8] T-SNE https://www.nature.com/articles/s41467-019-13056-x <br>
+[9] DistilBERT https://arxiv.org/abs/1910.01108 <br>
+[10] An Isotropy Analysis in the Multilingual BERT Embedding Space https://aclanthology.org/2022.findings-acl.103.pdf
+<br>
+[11] Where are we in embedding spaces? https://arxiv.org/abs/2105.08908 <br>
+[12] Visuallization of BERT https://github.com/jessevig/bertviz.git <br>
+ - shap https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/text.html
+ - captum https://captum.ai/ <Br>
+ 
+[13] Hugging face model weight upload and load
+- https://huggingface.co/transformers/v1.0.0/model_doc/overview.html#loading-google-ai-or-openai-pre-trained-weights-or-pytorch-dump
+- https://huggingface.co/docs/transformers/main_classes/model
+- https://huggingface.co/docs/huggingface_hub/how-to-downstream
+
+</details>
+
+
+
+ <br>
+
+
+#### Daily Commit Summary <br>
+|Date|Description|
+|:---:|:---|
+|23.01.16|* Resource check: GPT inference requires a minimum of 32GB VRAM, which is not available. KO-BERT will be used instead. <br> - Environment setup completed: local resources and Colab are used in parallel. <br> - Brief Problem Definition and EDA, Data Analysis, BERT Embedding Visualization.
+|23.01.17|- Writing base code <br> - Creating a list of experiments that can be performed within the given timeframe.|
+|23.01.18|- Experiment results summary: <br>- Finalizing the pipeline|
+|23.01.19~|- Final submission and repository cleanup after refactoring. <br>- Documentation <br> - To be used as a submodule for the Recommendation project (including t-SNE and embedding).|
+|23.02.05~|- I have paid for Colab Pro while working on a Kaggle project that predicts click, add-to-cart, and purchase behavior. Therefore, I plan to update the experiments using GPT for training in February. <br> - Additional XAI and FrontEnd development is planned to be performed.|
+
+<br>
+
+
+## Remark
+- *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
+-I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
+
+<!-- - *This is just a toy project! please enjoy it!* <br>
+![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
+
+<br>
+
+
+# [Optional] Related Packages
+### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
+```bash
+$ pip install quickshow
+```
+- Some visualization modules used in this project have been released. I will conveniently wrap various modules used in several projects so that they can be continuously updated in the future.
+
+### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
+```bash
+$ pip install corpusshow
+```
+- The corpusshow package enables visualization of clustered corpora and embedded sentences with labels based on the Sentence Transformer. It provides an easy and fast way to visualize embedded sentences with labels.
+
+<br>
+
+# [Optional] Install Issues 
 - Although my time was dead, I want to save your time.
 - In `Google Colab`, some resources can handle version conflict, but the others failed to handle this issue. So you need to try 3-4 times while changing resource type(GPU or CPU).<br>
 - All issues are caused by legacy `numpy` versions in each package. 
@@ -536,75 +612,3 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 
 <br>
-
-# References <Br>
-[1] GPT fine-tune https://www.philschmid.de/getting-started-setfit <br>
-[2] KO-GPT https://github.com/kakaobrain/kogpt <br>
-[3] KO-BERT https://sktelecom.github.io/project/kobert <br>
-`download` of kobert-base-v1 https://huggingface.co/gogamza/kobart-base-v1 <br>
-[4] Sentence-embedding https://github.com/UKPLab/sentence-transformers <br>
-[5] Multilingual SBERT https://www.sbert.net/examples/training/multilingual/README.html <br>
-[6] NLP gluon BERT documentation https://nlp.gluon.ai/model_zoo/bert/index.html
-<br>
-
-<details>
-<summary> See more..</summary>
-
-[7]
-  [Evaluation of Pretrained BERT Model by Using Sentence Clustering](https://aclanthology.org/2020.paclic-1.32) (Shibayama et al., PACLIC 2020)
-<Br>
-[8] T-SNE https://www.nature.com/articles/s41467-019-13056-x <br>
-[9] DistilBERT https://arxiv.org/abs/1910.01108 <br>
-[10] An Isotropy Analysis in the Multilingual BERT Embedding Space https://aclanthology.org/2022.findings-acl.103.pdf
-<br>
-[11] Where are we in embedding spaces? https://arxiv.org/abs/2105.08908 <br>
-[12] Visuallization of BERT https://github.com/jessevig/bertviz.git <br>
- - shap https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/text.html
- - captum https://captum.ai/ <Br>
- 
-[13] Hugging face model weight upload and load
-- https://huggingface.co/transformers/v1.0.0/model_doc/overview.html#loading-google-ai-or-openai-pre-trained-weights-or-pytorch-dump
-- https://huggingface.co/docs/transformers/main_classes/model
-- https://huggingface.co/docs/huggingface_hub/how-to-downstream
-
-</details>
-
-
-
- <br>
-
-
-#### Daily Commit Summary <br>
-|Date|Description|
-|:---:|:---|
-|23.01.16|* Resource check: GPT inference requires a minimum of 32GB VRAM, which is not available. KO-BERT will be used instead. <br> - Environment setup completed: local resources and Colab are used in parallel. <br> - Brief Problem Definition and EDA, Data Analysis, BERT Embedding Visualization.
-|23.01.17|- Writing base code <br> - Creating a list of experiments that can be performed within the given timeframe.|
-|23.01.18|- Experiment results summary: <br>- Finalizing the pipeline|
-|23.01.19~|- Final submission and repository cleanup after refactoring. <br>- Documentation <br> - To be used as a submodule for the Recommendation project (including t-SNE and embedding).|
-|23.02.05~|- I have paid for Colab Pro while working on a Kaggle project that predicts click, add-to-cart, and purchase behavior. Therefore, I plan to update the experiments using GPT for training in February. <br> - Additional XAI and FrontEnd development is planned to be performed.|
-
-<br>
-
-
-## Remark
-- *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
--I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
-
-<!-- - *This is just a toy project! please enjoy it!* <br>
-![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
-
-<br>
-
-
-# [Optional] Related Packages
-### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
-```bash
-$ pip install quickshow
-```
-- Some visualization modules used in this project have been released. I will conveniently wrap various modules used in several projects so that they can be continuously updated in the future.
-
-### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
-```bash
-$ pip install corpusshow
-```
-- The corpusshow package enables visualization of clustered corpora and embedded sentences with labels based on the Sentence Transformer. It provides an easy and fast way to visualize embedded sentences with labels.
