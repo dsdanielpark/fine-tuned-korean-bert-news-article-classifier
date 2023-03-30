@@ -14,7 +14,7 @@ model's performance.
 
 <br>
 
-### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
+##### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
 
 <br>
 
