@@ -8,7 +8,7 @@
 
 <br> 
 
-Overview: Repository class diagram (`packages.dot`)
+## Overview: Repository class diagram (`packages.dot`)
 - For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
 - `src/kobert`, `src/kobert_hf` (Red nodes in graphviz)
 
@@ -17,31 +17,29 @@ Overview: Repository class diagram (`packages.dot`)
 <br>
 
 ## TASK: Multi-category(8 classes) Korean News Topic Classifier 
-한글 뉴스 토픽 다중 분류 모델 <Br>
-- Perform a simple task to compare the performance of KO-BERT and implementations of BERT in different frameworks <br>
-- FrameWork: `PyTorch`, `APACHE MXNET GluonNLP` and `Hugging-Face` for modeling, `Scikit-Learn` to calculate evaluation metric.
+A multi-category Korean news topic classifier model. <Br>
+- Compare the performance of KO-BERT and BERT implementations in different frameworks by performing a simple task. <br>
+- Frameworks used: PyTorch, APACHE MXNET GluonNLP, and Hugging-Face for modeling, and Scikit-Learn for calculating evaluation metrics.
 - Pre-trained model: [`KO-BERT`](https://github.com/SKTBrain/KoBERT), `BERT`, [`SBERT`](https://www.sbert.net/)
-- Dataset: Korean News Topic Classification Dataset (특정 회사에서 수집하여 비공개로 제공) <br>
+- Dataset: Korean News Topic Classification Dataset (collected and provided privately by a specific company) <br>
 - Evaluation: Accuracy <br>
 - Duration: Jan 16,2023 - Jan 19,2023 (4days) <br>
 - Author: [Daniel Park, South Korea](https://github.com/DSDanielPark) <br>
 
 <br>
 
-# TL;DR
-### Sub Task 
-- (프레임워크 비교) `GluonNLP`, `PyTorch`, `Hugging-Face` 프레임워크의 BERT 모델 구현 비교
-- (인풋 정보량에 따른 BERT Classifier의 성능 비교) 뉴스의 제목, 제목+본문, 본문을 인풋으로 사용하였을 경우의 모델 분류 성능 정량적 비교
-- (사전 군집화정보에 따른 모델 학습 속도 비교) Multilingual-BERT(SBERT)를 통해 사전에 군집 정보를 주었을 경우, 모델의 학습 속도가 달라지는지 여부 비교
-  - PyTorch의 경우, initial [CLS] 토큰에 정보를 임베딩하고
-  - GluonNLP의 경우, 전처리 단계에서 군집에 대한 정보를 인풋에 삽입하여 비교
-### 본 레포지토리는
-- 'Fine-tuned MXNet GluonNLP BERT Classifier weight file(`weights/ko-news-clf-gluon-weight.pth`)'을 `git-lfs`을 통해서 제공하고, 'Sample csv file for inference(`data/sample.csv`)'를 제공합니다. 
-- 추후 범용적으로 사용할 수 있는 패키지 pypi를 통해 배포합니다. 
-- To-Do: Hugging Face 프레임워크, XAI, GPT2, GPT3, BERT Pipeline etc.
+## Sub Task 
+- Comparison of BERT model implementations in GluonNLP, PyTorch, and Hugging-Face frameworks.
+- Quantitative comparison of model classification performance using news titles, titles + article bodies, and article bodies alone as input.
+- Comparison of model training speed when providing pre-clustering information using Multilingual-BERT (SBERT).
+  - In PyTorch, information is embedded in the initial [CLS] token, and in GluonNLP, information about clustering is inserted into the input during the preprocessing stage.
+### This repository
+- Provides a fine-tuned MXNet GluonNLP BERT Classifier weight file (weights/ko-news-clf-gluon-weight.pth) through git-lfs, and a sample CSV file for inference (data/sample.csv).
+- Will be distributed through pypi for universal use in the future.
+- To-Do: Hugging Face framework, XAI, GPT2, GPT3, BERT Pipeline, etc.
 
 
-<br><br><br>
+<br>
 
 ## Repository folder tree
 ```
@@ -49,33 +47,34 @@ Overview: Repository class diagram (`packages.dot`)
  ┣ 📂data
  ┃ ┣ 📂csv
  ┃ ┣ 📂imgs
- ┃ ┣ 📜sample.csv                          # for inference (project input)
+ ┃ ┣ 📜sample.csv                          # For inference (project input)
  ┃ ┣ 📜test_set.csv
  ┃ ┗ 📜train_set.csv
  
- ┣ 📂experiments                           # dummies for experiments
+ ┣ 📂experiments                           # Dummies for experiments
  ┃ ┣ 📂experiment_weights
  ┃ ┣ 📜exp.md
  ┃ ┗ 📜exp_metric.md
  
- ┣ 📂notebooks                             # for developing features (will NOT be provided)
+ ┣ 📂notebooks                             # For developing features (will NOT be provided)
 
  ┣ 📂src
  ┃ ┣ 📂kobert                              # SKT KOBERT / references[2, 3]
- ┃ ┣ 📂kobert_gluon                        # gloun nlp 실험을 위한 모듈
+ ┃ ┣ 📂kobert_gluon                        # Module for GluonNLP experiments.
  ┃ ┣ 📂kobert_hf                           # SKT KOBERT / references[2, 3]
- ┃ ┣ 📂kobert_pytorch                      # torch bert 실험을 위한 모듈
- ┃ ┣ 📂preprocess                          # 본 레포지토리 실험을 위한 전처리 모듈
+ ┃ ┣ 📂kobert_pytorch                      # Module for torch bert experiments.
+ ┃ ┣ 📂preprocess                          # Preprocessing module for this repository's experiments.
 
  ┣ 📂weights
- ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # will be provided throught git-lfs (>0.3 GB), MODE==2
- ┃ ┗ 📜ko-news-clf-torch-weight.pth        # will NOT be provided (>1.0 GB), MODE==2
+ ┃ ┣ 📜ko-news-clf-gluon-weight.pth        # Will be provided throught git-lfs (>0.3 GB), MODE==2
+ ┃ ┗ 📜ko-news-clf-torch-weight.pth        # Will NOT be provided (>1.0 GB), MODE==2
 
- ┣ 📜.gitattributes                        # git-lfs managing
+ ┣ 📜.gitattributes                        # Git-lfs managing
  ┣ 📜.gitignore
- ┣ 📜config.py                             # config
+ ┣ 📜config.py                             # Config
  ┣ 📜LICENSE
- ┣ 📜main.py                               # main.py (gluon inference만 제공)
+ ┣ 📜main.py                               # main.py (providing only gluon inference)
+
  ┣ 📜README.md
  ┗ 📜requirements.txt
 ```
@@ -83,25 +82,12 @@ Overview: Repository class diagram (`packages.dot`)
 
 
 
-<br><Br>
-## [Optional] Related Packages
-#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
-```bash
-$ pip install quickshow
-```
-- 이번 프로젝트에 활용된 일부 시각화 모듈을 배포하였습니다. 지금까지 여러 프로젝트에서 사용된 다양한 모듈을 편리하게 래핑하여 추후 계속 업데이트할 예정입니다.
-
-#### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
-```bash
-$ pip install corpusshow
-```
-- corpusshow[코뿔:소] 패키지는 Sentence Transformer 기반으로 코퍼스를 클러스터링해서 시각화하거나 레이블과 함께 Embedded Sentence를 쉽고 빠르게 시각화할 수 있습니다.
-
 
 <br><br>
 
 ## Quick Start
-본 레포지토리는 highly encapsulated inference class for bert classifier를 포함합니다.
+This repository includes a highly encapsulated inference class for the BERT classifier.
+
 ```
 $ git clone https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier.git
 $ cd fine-tuned-korean-BERT-news-article-classifier
@@ -152,14 +138,11 @@ optional arguments:
 <br><Br>
 
 - **EDA:**
-<br> I analyzed the quality of the data, but I couldn't find any outliers because it was a very well-refined dataset. 
-<br> Since this data was processed for a specific purpose by a Korean IT company, data preprocessing was unnecessary. 
-<br> Replace the next image with data analysis.
+<br> The dataset used for the analysis was of high quality and well-refined, hence no outliers were found. As the dataset was specifically processed by a Korean IT company, there was no need for further data preprocessing.
 <br><Br>
-<img src="./data/imgs/fig.png" width="600"> <br> *Fig 1. 테스트셋과 트레인 셋의 데이터 분포(이 태스크의 경우, 추가적인 데이터 수집 및 학습이 용이하므로 imbalance는 고려하지 않음)*
+<img src="./data/imgs/fig.png" width="600"> <br> *Fig 1. The data distribution between the test and training sets was examined, and imbalance was not considered as it was feasible to collect additional data and train the model with it.*
 <br><br>
-  - Since the advent of large-scale natural language processing models, feature engineering on corpus has not been of great significance.
-  - In `MODE 4` and `MODE 5`, a test was conducted to give some information on the similarity of articles in advance through k-mean clustering based on the tokens embedded from the pre-trained BERT model.
+  - The importance of feature engineering has decreased with the rise of large-scale NLP models. In MODE 4 and MODE 5, k-mean clustering was used to determine the similarity of articles through tokens embedded from a pre-trained BERT model.
 
   <br>
 
@@ -196,11 +179,11 @@ All model architecture and learning conditions in the whole pipeline were fixed 
 
 
 
-- 실험은 크게 다음 4가지 가설을 확인하기 위하여 설계되었음. <br>
-  1) 한글 기사의 본문, 제목, 본문과 제목을 통한 분류 성능의 차이 확인하고자 설계됨 - `MODE1~MODE3`
-  2) 일종의 지식증류를 통한 KO-BERT의 미세 조정(fine-tunning) 과정에서 Teacher Model(SBERT)로 부터 생성한 군집에 대한 정보가 모델 수렴에 얼마나 영향을 줄 수 있는지 확인하고자 설계됨 - `MODE3~MODE4`
-  3) 2번의 과정에서 SBERT로 생성된 정보(군집의 수)가 얼마나 옳은지(동일한 클래스가 동일 군집으로만 구성되어 있는지)가 모델 파라미터 미세조정에 영향을 주는지 확인하기 위해 설계됨 - `MODE4`: `EXP8~EXP11`
-  4) 마지막으로 SBERT로부터 생성된 정보를 모델 인풋으로 주입시키는 것과 initial hidden layer에 주입시키는 것의 차이를 PyTorch와 MXNet 프레임워크를 통해 비교함 - `MODE4~MODE5`
+- The experiment was designed to test the following four hypotheses: <br>
+  - To compare the classification performance using the title, body, and title+body of Korean news articles - MODE1~MODE3
+  - To investigate how much the cluster information generated by the Teacher Model (SBERT) during fine-tuning of KO-BERT through a kind of knowledge distillation affects the model convergence - MODE3~MODE4
+  - To examine the influence of the cluster information (number of clusters) generated by SBERT on model parameter fine-tuning, and how accurate the generated information is (whether the same class is only composed of the same cluster) - MODE4: EXP8~EXP11
+  - To compare the difference between injecting the cluster information generated by SBERT into the model input and injecting it into the initial hidden layer using PyTorch and MXNet frameworks - MODE4~MODE5
 
 <br>
 <br>
@@ -252,7 +235,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilBER
 # Evaluation
 You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp_metric.md).
 
- <img src="./data/imgs/result.png" width="1000"><BR> *Fig 2. 각 실험별 F1 score, Recall, Precision*
+ <img src="./data/imgs/result.png" width="1000"><BR> *Fig 2. F1 score, Recall, Precision for each experiment*
 
 <br><br>
 <br><br>참고.
@@ -269,7 +252,7 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
 <br>
 
 ## Confusion Metrix and Heatmap in`EXP5` for each topic.
-전체적인 결과는 [`exp/exp_metric.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp_metric.md)에 공개하였으며, Evaluation 도표를 통해 충분히 결과에 대한 유추가 가능하므로 모든 실험에 대한 Confusion Metrix 제공은 생략하며, 다음 예시를 통해 갈음함.
+The overall results are presented in exp/exp_metric.md. Since the evaluation charts provide sufficient information to infer the results, I omit providing confusion matrices for all experiments. An example is provided below.
 <br>
 
 1. Classification report
@@ -305,27 +288,27 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
 
 # Embedding Token Visuallization<br>
 
-  #### **1. SBERT로부터 생성된 토큰의 유클리디안 거리를 통해 K-means 군집화를 수행할 경우, 클러스터 수 별 Ground Truth Category 분포 시각화**
+  #### **1. Visualization of Ground Truth Category Distribution by Cluster Count when performing K-means clustering using the Euclidean distance of tokens generated from SBERT**
 
-  - 파란석 y-tick 밴드 사이가 각 군집을 의미
-  - 군집안에 카테고리가 없을 경우 시각화되지 않으므로 밴드가 좁을수록 존재하는 Ground Truth Category의 고유값의 수가 적음을 의미
-  - 전체 테이블은 [`csv`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/csv)폴더 안에서 확인
+  - The blue stone between y-tick bands represents each cluster.
+  - If there is no category within the cluster, it will not be visualized, so a narrow band means that there are fewer unique values of existing Ground Truth Categories.
+  - The entire table can be found in the [`csv`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/csv) folder.
 
     <img src="./data/imgs/cluster8.png" width="220" height='200'> <br>
     <img src="./data/imgs/cluster16.png" width="450" height='200'><br>
     <img src="./data/imgs/cluster32.png" width="900" height='200'><br>
-    *Fig 5. 클러스터별 Ground Truth Label의 분포. 위에서부터 아래 순서로 8, 16, 32개의 cluster로 군집화한 결과, 파란 밴드가 Cluster의 경계를 의미하며, 밴드 사이(클러스터별) Ground Truth Category의 분포정도를 표시함.*
+    *Fig 5. Distribution of Ground Truth Labels per Cluster. The results of clustering with 8, 16, and 32 clusters from top to bottom, where the blue band represents the boundary of the clusters and indicates the degree of distribution of Ground Truth Categories between the bands (clusters).*
 
     <details>
     <summary> See detail</summary>
 
 
-    - SBERT로 사전에 군집에 대한 정보를 이식하여, KO-BERT의 fine-tunning을 진행하였는데, EXP8부터 EXP11까지 8개(`EXP8`)부터 64개(`EXP11`)까지 군집에 대한 수를 변경하여 봄. (64개의 경우 유의미한 차이가 없으므로 클러스터별 Ground Truth Label의 분포 시각화를 생략)
-    - 실험결과는 기대와 동일하게 8개의 군집의 경우, 군집이 충분히 유사한 기사들을 묶어두지 못하였고(클러스터의 수가 너무 적음),  32개 이상으로 과하게 군집화하였을 경우, 너무 많은 군집의 수로 인해 모델 학습에 좋지 않은 영향을 미친 것으로 보임.
-    - SBERT로 생성된 토큰의 유사도를 임베딩해주는 것이 KO-BERT fine-tunning에 영향을 줄 수 있는지 확인하는 목적이였으므로, 추가적인 최적 군집수를 도출은 불요.
-    - 너무 적은 군집의 수(<=the number of classes)나 너무 많은 군집의 수(>=4 times the number of classes)는 모델 학습에 좋은 영향을 미치지 않을 가능성을 확인함.
-    - `EXP4`,`EXP11`의 결과와 학습 양상이 비슷하므로 너무 군집의 수가 많은 EXP11에서는 KO-BERT의 미세조정에 SBERT로부터 생성된 Cluster정보를 Representation으로 사용하지 않은 것으로 추정함. 
-    - `MXNET` 프레임워크에서는 인풋 데이터에 군집에 대한 정보를 삽입하는 것으로 구현하였고, `PyTorch` 프레임워크에서는 initial layer에 군집에 대한 정보를 [CLS] 토큰에 임베딩하여 initial hidden layer에 정보를 삽입하였으며, 프레임워크와 상관없이 조금 더 빠르게, 높은 성능에 도달할 수 있는 것을 확인함.
+  - I have performed fine-tuning of KO-BERT with pre-trained clustering information from SBERT, varying the number of clusters from 8 (EXP8) to 64 (EXP11) in experiments 8 to 11. (I omitted the visualization of the distribution of Ground Truth Categories per cluster for 64 clusters as there was no significant difference.)
+  - As expected, I found that when there were too few clusters (less than or equal to the number of classes), the model was unable to group similar articles well, and when there were too many clusters (four times or more than the number of classes), it had a negative impact on model training.
+  - The purpose of investigating the impact of embedding similarity scores generated by SBERT into KO-BERT fine-tuning was to confirm whether it affected the results. Therefore, there was no need to derive additional optimal numbers of clusters.
+  - I found that both a small number of clusters (<= the number of classes) and a large number of clusters (>= 4 times the number of classes) did not have a positive impact on model training, based on the experimental results.
+  - The results and learning patterns of EXP4 and EXP11 were similar, so it is speculated that in EXP11 where there were too many clusters, the clustering information generated by SBERT was not used as a representation in KO-BERT fine-tuning.
+  - I implemented inserting clustering information into the input data in the MXNET framework and embedding the clustering information into the [CLS] token in the initial layer and inserting it into the initial hidden layer in the PyTorch framework. I confirmed that regardless of the framework, I could achieve faster and higher performance.
       
 
     </details>
@@ -339,27 +322,25 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
   
   <br>
 
-  #### **2. SBERT로부터 생성된 토큰 시각화** <br>
+  #### **2. Visualization of tokens generated from SBERT** <br>
 
   <details>
   <summary> See detail</summary>
+  The study conducted in this repository found that, similar to the research on Multilingual BERT Embedding Space and Embedding Space in Recommender Systems, tokens with a more isotropic distribution in the embedding space tend to show better performance. The SBERT used for token visualization in this repository is also Multilingual BERT, so it was assumed that there was not much difference between this experiment and the research in [[10]](https://aclanthology.org/2022.findings-acl.103.pdf) [[11]](https://arxiv.org/abs/2105.08908). The distribution of tokens in the embedding space created from the title was found to be slightly more isotropic, and it was confirmed that experiments using only the title or only the body of the article achieved higher accuracy compared to experiments using both (0.8269 and 0.8864, respectively). As a result, it is suggested that finding datasets or preprocessing methods that have a more isotropic token distribution in a low-dimensional space through visualization before fine-tuning tasks in BERT can lead to better model training results.
 
-  Multilingual BERT Embedding Space에 대한 연구[[10]](https://aclanthology.org/2022.findings-acl.103.pdf)와 Recommender Systems에서의 Embedding Space에 대한 연구[[11]](https://arxiv.org/abs/2105.08908)와 비슷하게 Token이 조금 더 Isotropic한 분포를 보이는 것이 좋은 성능을 나타낸 것을 확인할 수 있었다. 본 레포지토리에서 토큰 시각화에 사용한 SBERT 역시 Multilingual BERT이므로 상기[10]의 논문과 비슷한 환경에서의 실험이라고 가정하는 것에 큰 무리가 없을 것으로 판단하였다. <br> <br>제목으로부터 생성된 Embedding Space에서의 Token의 분포가 조금 더 isotropic한 것을 확인할 수 있었으며, 실제로 `EXP6`(기사의 제목만으로 학습)과 `EXP7`(기사의 본문만으로 학습)의 결과를 보면 Accuracy `0.8269`와 `0.8864`로 약 `0.595` 더 높은 정확도를 보이는 것을 확인할 수 있었다. 
-  <br><br>
-  결과적으로 BERT의 fine-tunning 태스크 이전에 Low Dimension(2DIM or 3DIM) Space로 시각화하여 조금 더 isotropic token 분포를 갖는 데이터셋이나 전처리 방법을 찾는 것이 조금 더 좋은 모델 학습 결과를 보일 수 있을 수 있음을 시사한다. <br><br>
 
   </details>
 
 
-  2-1 기사의 제목으로부터 생성된 토큰 시각화
+  2-1 Token visualization generated from the titles of articles
   <img src="./data/imgs/title_token_vis.png" width="1000"><br>
   *Fig 6. Visualization of embedded tokens from SBERT for title of Korean articles*<br><br>
-  2-2 기사 본문으로부터 생성된 토큰 시각화 <br>
+  2-2 Token visualization generated from the article body. <br>
   <img src="./data/imgs/body_token_vis.png" width="1000"> <br>
   *Fig 7. Visualization of embedded tokens from SBERT for body of Korean articles* <br><br>
   
 
-  #### **3. KO-BERT fine-tunning 과정에서의 CLS Token 시각화**
+  #### **3. Visualization of CLS Token during KO-BERT fine-tuning process.**
   in the [HuggingFace BERT documentation](https://huggingface.co/docs/transformers/model_doc/bert#bertmodel), the returns of the BERT model are `(last_hidden_state, pooler_output, hidden_states[optional], attentions[optional])`
 <br><BR>
 
@@ -373,15 +354,7 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
   <details>
   <summary> See detail</summary>
   
-  - 태스크가 간단하였으므로 BERT의 fine-tuning만으로 단기간 안에 0.8이상의 분류기를 생성함.
-  - 기사의 본문을 포함할 경우, `0.8641` ~ `0.8895`의 테스트 셋 Accuracy의 8개의 토픽 분류 모델을 생성함.
-  - 기사의 제목만을 포함할 경우, `0.8269`의 테스트 셋 Accuracy를 확인함.
-  - Sentence Embedding한 결과를 BERT 모델의 인풋으로 주는 실험에서는 Sentence Embedding한 Cluster의 수별로 약간의 차이가 있었으나, 아주 적은 정보(1자리 혹은 2자리의 정수)만으로 조금 더 빠르게 최대 Accuracy인 `0.8895`로 수렴함을 확인함.
-  - 전반적으로 충분한 실험이 수행되진 않았지만, 몇 가지 조건에 대해 반복적인 학습을 진행해 본 결과, 현재 실험조건에서의 최고 성능은 `0.8895` 정도였고, 사전에 Cluster에 대한 정보를 줄 경우, 최고 성능에 더 빠르게 도달함을 확인함.
-  - 기대와 동일하게, 제대로 된 약간의 초기 클러스터 정보만 있어도 BERT 모델이 조금 더 빠르게 수렴하는 것을 확인할 수 있었고, BERT 모델의 경우 Early Stop 조건을 조금 관대하게 주는 것이 좋음을 확인함.
-  - 위 코드 작업이나 실험이 매우 단기간(정확도 0.88대의 base-line 도출까지 대략 3일)에 이뤄졌고, KO-BERT fine-tuning 성능을 확인하기 위한 것에 초점을 맞춰 구성되었음.
-  - 본 태스크는 1) 데이터에 비해 태스크 난이도가 매우 낮고, 2) 고도의 정확도를 요구하지 않으며, 3) 몇가지 트릭 및 룰로 더 빠르게 분류가 가능하므로 BERT를 해당 태스크에 적용하기 위한 실험이라기 보다는 다른 어려운 태스크에 BERT 모델의 적용할 때 유용한 몇가지를 테스트하기 위해서 구성되었음. 
-  - 추가적으로 GPT-3를 위한 리소스를 확보하였으므로, 동일한 태스크와 실험등을 통해 GPT-3와 BERT 모델의 적용 비교를 추가하고자 함.
+  During KO-BERT fine-tuning, the CLS token visualization shows that, due to the simple task, a classifier with an accuracy of over 0.8 can be created using BERT's fine-tuning alone in a short period of time. When including the article's body, 8 topic classification models with a test set accuracy ranging from 0.8641 to 0.8895 were created, while including only the article's title resulted in a test set accuracy of 0.8269. Experiments with sentence embedding as the input to the BERT model showed that there was a slight difference in accuracy depending on the number of clusters, but even with very limited information (1-2 digit integers), the maximum accuracy of 0.8895 could be achieved more quickly. Overall, the highest performance achieved in the current experimental conditions was around 0.8895, and it was found that giving prior information about the clusters led to faster convergence. The experiments were conducted over a short period (roughly 3 days to achieve a baseline accuracy in the 0.88 range), with a focus on confirming the performance of KO-BERT fine-tuning. This task did not require high accuracy and was relatively easy compared to the amount of data, making it a good test for applying BERT to more challenging tasks. Additionally, resources have been secured for GPT-3, and there are plans to compare the application of GPT-3 and BERT models through similar tasks and experiments.
 
   </details>
 
@@ -390,27 +363,21 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
   ## Further experiments
   <details>
   <summary> See detail</summary>
-
-  - `(Qualitative check)` 전처리 없이 데이터 셋의 원본만으로도 요구사항이었던 70% 이상의 정확도를 보였으므로, 추가적인 전처리를 진행하지 않았지만, 어떤 토큰이 모델 인퍼런스에 영향을 주는지 확인하고, 모델이 인풋 기사 데이터에서 이상한 토큰을 Representation으로 사용하고 있는지는 않은지 체크해 볼 필요가 있음.
-  - `(eXplainable AI)`추가적으로 토큰의 영향도를 시각화해서 SBERT로 준 Cluster가 어느 정도의 영향이 있었는지 확인할 계획.
-  - `(Understanding the BERT model)` 추가적으로 배치 사이즈에 대한 차이, BERT 모델이 볼 수 있는 max_length의 차이를 관찰하면 향후 fine-tuning할 때 큰 도움이 될 수 있을 것으로 보이며, GPT-3에 대한 것들은 향후 리소스가 확보되는대로 다시 비슷하게 쉬운 태스크로 체크해 볼 계획.
-  - `(Exploring the Sentence Embedding Cluster)` Sentence Embedding의 경우, Cluster 수에 따라서 어느 정도 유의미한 차이가 보인다고 판단되며, 몇가지 추가 실험을 더 수행해볼 수 있음.
-  - `(Hypothesis Testing)`가정하였던대로 유사도 클러스터를 초기값으로 갖고 있을경우, 더 빠르게 학습할 수 있음을 확인하였으며, 결론적으로 Sentence Embedding으로부터 얻은 아주 작은 양의 임팩트 있는 클러스터 정보(high quality and low volume of information)만으로 모델 학습 속도에 영향을 줄 수 있다는 것을 확인함.
-      - 이는 multilingual-BERT인 SBERT의 토큰 임베딩 값을 기반으로 클러스터링 정보를 생성하고, KO-BERT가 fine-tuning 과정에서 SBERT의 아웃풋을 참조하므로, 일종의 지식 증류의 성격을 띈다고 볼 수 있으며, 학습 속도면에서 결과 차이가 있음을 확인함.
-      - 이러한 증류는 적은 양의 데이터를 학습시키는 태스크에서 큰 실익이 없을 수 있으나, 클러스터 정보를 인풋으로 넣는 것이 더 크고 무거운 모델을 빠르게 학습시키도록 기여할 수 있다는 것을 보여줌.
-      - 다른 모델로부터 전달되는 레이블 값은 모델이 참고하기에 충분히 옳은 정보만으로 구성되어 있어야한다는 것을 확인함.
-        - `EXP8` ~ `EXP11`이 이러한 클러스터 정보의 질에 따른 학습속도 및 학습 결과를 확인하기 위해 구성되었으며, 8개의 클래스 분류기 생성시에 8개의 클러스터 정보보다는 16개정도 충분히 옳은 클러스터 정보만을 갖고 있도록 구성하는 것이 좋음을 확인함.로 토큰의 영향도를 시각화해서 SBERT로 준 Cluster가 어느 정도의 영향이 있었는지 확인할 계획.
+  
+  The original dataset without any preprocessing showed more than 70% accuracy, which met the requirements. However, it is important to check which tokens affect the model inference and whether the model is using any strange tokens in the input article data. The team plans to visualize the impact of tokens and observe the differences in batch size and max_length of the BERT model, which could be helpful for fine-tuning in the future. I also plan to explore sentence embedding clusters and conduct additional experiments. The team found that high-quality and low-volume cluster information obtained from sentence embeddings can significantly impact model training speed. This knowledge distillation process can contribute to faster learning of heavier models. The team also emphasized the importance of ensuring that the labels passed on from other models contain sufficient and accurate information. The team plans to create 8 cluster information for 8 classification models, which should be more accurate than 16 clusters.
 
   </details>
 
 <br>
 
 ### `MODE1 & MODE3` 
-<details>
-<summary> See detail</summary>
+  <details>
+  <summary> See detail</summary>
 
-  - If the sentence length is sufficiently secured, the title of the article is just information that is a repetition of important keywords in the article. Thus it showed a similar accuracy whether the title was added or not. The accuracy after the first epoch can be ignored as the result of random initialization.
-  - The title of the article implies the connotation of very well-refined information. Therefore, it is possible to consider giving a little more weight to the title. However, considering the complexity, it is not worth that much.
+  - The title of an article does not significantly impact the accuracy of the model, as long as the sentence length is sufficiently long. 
+  - The title may carry more weight in conveying refined information, but this is not significant enough to justify giving it more weight in the model. 
+  - The accuracy after the first epoch can be disregarded due to random initialization.
+
   </details>
 
 ### `MODE2` 
@@ -418,9 +385,8 @@ You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](http
   <details>
   <summary> See detail</summary>
 
-  - The BERT model has strengths in semantic inference through a slightly wider context and self-emphasis in the context than existing natural language processing models. Therefore, it shows that it is very difficult to classify the topic with only the use of article titles(limited length).
-  - Nevertheless, it was surprising that the title of the article alone could be inferred with 82% accuracy just by fine-tuning the BERT model.
-  - If I could infer using GPT-3, the result would be much better in the same condition.
+  - The BERT model excels in semantic inference due to its wider context and self-attention mechanism, making it difficult to classify topics based on article titles alone. 
+  - However, fine-tuning BERT allows for accurate inference of article titles with 82% accuracy. GPT-3 is expected to perform even better in the same conditions.
 
  </details>
 
@@ -439,19 +405,19 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 <br>
 <br>
   
-### DistilBERT관련 `EXP2 & EXP9`에 대한 고찰
+### A discussion on EXP2 & EXP9 related to DistilBERT.
 
   <details>
   <summary> See detail</summary>
 
 
-  - 위 `Embedding Token Visuallization` - 1의 연장선으로 EXP2와 EXP9의 결과를 정리하고 시각화함.
+  - Continuing from the 'Embedding Token Visualization - 1', this study summarizes and visualizes the results of EXP2 and EXP9.
   
   <p align="center">
     <img src="./data/imgs/Precision2and9.png" width="300"> <BR> 
   </p>
 
-  *Fig . 실험2와 실험3의 Precision 비교*
+  *Fig . Comparison of Precision between Experiment 2 and Experiment 3.*
 
 
   |   exp | metric    |   culture |    economy |   entertain |   international |        it |   politics |    society |      sport |   accuracy |   macro avg |   weighted avg |
@@ -486,11 +452,11 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
   <details>
   <summary> See detail</summary>
 
-- 3가지 프레임워크 모두 다양하고 우수한 기능을 제공해주었습니다. 그러나 전체 파이프라인에서 BERT의 인풋을 처리하는 순서 및 추상화 정도가 약간씩 달랐습니다. 
-- Huggingface가 highly-encapsulated 되어있음에도 불구하고, 더 빠르고 간편하게 모델을 수정하고, 레이어에 접근할 수 있다는 점이 놀라웠습니다.
-- PyTorch, Huggingface,MXNet GluonNLP 순으로 커뮤니티가 활발하고, 다양한 접근을 위한 좋은 프로젝트들이 있는 것 같았습니다. huggingface가 모델 관리 및 hidden layer 접근 및 구조 변형도 조금 더 용이한 것 같다고 생각하였으며, 추후 진행되는 GPT 프로젝트는 huggingface의 모듈을 위주로 사용할 예정입니다.
+  - All three frameworks provided various and excellent features, but the order and level of abstraction for processing BERT input in the entire pipeline were slightly different.
+  - I was surprised that despite being highly-encapsulated, Huggingface allows for faster and easier modification of models and access to layers.
+  - The communities for PyTorch, Huggingface, and MXNet GluonNLP seemed active and had good projects for various approaches. I thought that Huggingface was more convenient for model management, accessing hidden layers, and transforming structures, and I plan to use Huggingface's modules primarily for future GPT projects.
 
-</details>
+  </details>
 
 <br>
 
@@ -592,7 +558,6 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
   - broken pipe error => num_workers error, if you used CPU => check your num of threads, else remove args numworkers.
   - If you can not download torch KO-BERT weight with urlib3 or boto3 library error message include 'PROTOCOL_TLS' issue, This is an error related to Amazon aws server download. Thus, => use huggingface interface https://github.com/SKTBrain/KoBERT/tree/master/kobert_hf
   - If you have other questions, please send me an e-mail. *All is Well!! Happy Coding!!*
-  - 이슈는 issue를 생성해주시거나, 메일로 문의주시기 바랍니다.
 
 </details>
 
@@ -612,11 +577,10 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 <details>
 <summary> See more..</summary>
 
-참고하지 않았지만, BERT model few shot learning 관련된 논문을 찾다 mode4와 비슷한 컨셉의 논문을 확인함 <br>
 [7]
   [Evaluation of Pretrained BERT Model by Using Sentence Clustering](https://aclanthology.org/2020.paclic-1.32) (Shibayama et al., PACLIC 2020)
 <Br>
-[8] T-SNE 관련 https://www.nature.com/articles/s41467-019-13056-x <br>
+[8] T-SNE https://www.nature.com/articles/s41467-019-13056-x <br>
 [9] DistilBERT https://arxiv.org/abs/1910.01108 <br>
 [10] An Isotropy Analysis in the Multilingual BERT Embedding Space https://aclanthology.org/2022.findings-acl.103.pdf
 <br>
@@ -640,11 +604,11 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 #### Daily Commit Summary <br>
 |Date|Description|
 |:---:|:---|
-|23.01.16|* 자원체크: GPT inference 최소 VRAM 요구 용량(32GB) 부족으로 GPT 사용불가, KO-BERT 사용  <br> - 환경셋업 완료: 로컬 자원과 Colab 병행 <br> - 간단한 Problem Definition and EDA, Data Analysis, BERT Embbeding Visuallization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-|23.01.17|- 베이스 코드 작성 <br> - 기간 내 수행 가능한 실험 리스트 작성|
-|23.01.18|- 실험결과 정리 <br>- 파이프라인 확정|
-|23.01.19~|- 최종 제출 및 리팩토링 후 Repository 정리 <br>- Documentation <br> - Recommendation project에 서브 모듈로 사용(t-sne랑 embedding부분 포함)|
-|23.02.05~|- Kaggle 클릭, 장바구니, 구매 항목 예측 모델링하며 Colab Pro를 결제했으므로 2월중에 GPT를 통한 학습 실험 업데이트 예정 <br> - XAI, FrontEnd도 추가적으로 수행 예정|
+|23.01.16|* Resource check: GPT inference requires a minimum of 32GB VRAM, which is not available. KO-BERT will be used instead. <br> - Environment setup completed: local resources and Colab are used in parallel. <br> - Brief Problem Definition and EDA, Data Analysis, BERT Embedding Visualization.
+|23.01.17|- Writing base code <br> - Creating a list of experiments that can be performed within the given timeframe.|
+|23.01.18|- Experiment results summary: <br>- Finalizing the pipeline|
+|23.01.19~|- Final submission and repository cleanup after refactoring. <br>- Documentation <br> - To be used as a submodule for the Recommendation project (including t-SNE and embedding).|
+|23.02.05~|- I have paid for Colab Pro while working on a Kaggle project that predicts click, add-to-cart, and purchase behavior. Therefore, I plan to update the experiments using GPT for training in February. <br> - Additional XAI and FrontEnd development is planned to be performed.|
 
 <br>
 
@@ -654,7 +618,25 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilled
 
 ## Remark
 - *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
-- If it is used in actual service, some more tricks or experiments may be required. but as mentioned above, it is expected that the service can be maintained satisfactorily if applied in the same way with the heuristic method. There may be considerations such as continuous learning.
+-I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
+
 <!-- - *This is just a toy project! please enjoy it!* <br>
 ![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
 <br>
+
+
+
+
+<br><Br>
+## [Optional] Related Packages
+#### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
+```bash
+$ pip install quickshow
+```
+- Some visualization modules used in this project have been released. I will conveniently wrap various modules used in several projects so that they can be continuously updated in the future.
+
+#### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
+```bash
+$ pip install corpusshow
+```
+- The corpusshow package enables visualization of clustered corpora and embedded sentences with labels based on the Sentence Transformer. It provides an easy and fast way to visualize embedded sentences with labels.
