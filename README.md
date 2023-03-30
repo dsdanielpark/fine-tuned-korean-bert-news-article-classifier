@@ -29,7 +29,6 @@ Summerized by chat-GPT4
 <br><br><br><br><br><br><br><br>
 
 # Contents
-- [TASK: Multi-category(8 classes) Korean News Topic Classifier](#task--multi-category-8-classes--korean-news-topic-classifier)
 - [This repository](#this-repository)
 - [Quick Start](#quick-start)
 - [Outline](#outline)
