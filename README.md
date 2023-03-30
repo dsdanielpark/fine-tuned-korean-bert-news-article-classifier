@@ -140,7 +140,8 @@ optional arguments:
 - **EDA:**
 <br> The dataset used for the analysis was of high quality and well-refined, hence no outliers were found. As the dataset was specifically processed by a Korean IT company, there was no need for further data preprocessing.
 <br>
-<img src="./data/imgs/fig.png" width="600"> <br> *Fig 1. The data distribution between the test and training sets was examined, and imbalance was not considered as it was feasible to collect additional data and train the model with it.*
+<img src="./data/imgs/fig.png" width="600"> <br> 
+*Fig 1. The data distribution between the test and training sets was examined, and imbalance was not considered as it was feasible to collect additional data and train the model with it.*
 <br>
   - The importance of feature engineering has decreased with the rise of large-scale NLP models. In MODE 4 and MODE 5, k-mean clustering was used to determine the similarity of articles through tokens embedded from a pre-trained BERT model.
 
