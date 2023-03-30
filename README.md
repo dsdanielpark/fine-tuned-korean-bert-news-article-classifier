@@ -36,7 +36,6 @@ Summerized by chat-GPT4
 - [Results](#results)
 - [Experiments](#experiments)
 - [Evaluation](#evaluation)
-- [Embedding Token Visuallization<br>](#embedding-token-visuallization-br-)
 - [Discussion](#discussion)
 - [References <Br>](#references--br-)
 
