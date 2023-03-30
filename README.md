@@ -450,7 +450,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
 <br>
 
-# [Optional] Related Packages
+## Related Packages
 ### [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
 ```bash
 $ pip install quickshow
@@ -465,7 +465,7 @@ $ pip install corpusshow
 
 <br>
 
-# [Optional] Install Issues 
+## Install Issues 
 - Although my time was dead, I want to save your time.
 - In `Google Colab`, some resources can handle version conflict, but the others failed to handle this issue. So you need to try 3-4 times while changing resource type(GPU or CPU).<br>
 - All issues are caused by legacy `numpy` versions in each package. 
@@ -476,21 +476,16 @@ $ pip install corpusshow
 
 #### About `Hugging-Face`, `mxnet gluonNLP` and `PyTorch` Framework
 
-  <details>
-  <summary> See detail</summary>
 
   - All three frameworks provided various and excellent features, but the order and level of abstraction for processing BERT input in the entire pipeline were slightly different.
   - I was surprised that despite being highly-encapsulated, Huggingface allows for faster and easier modification of models and access to layers.
   - The communities for PyTorch, Huggingface, and MXNet GluonNLP seemed active and had good projects for various approaches. I thought that Huggingface was more convenient for model management, accessing hidden layers, and transforming structures, and I plan to use Huggingface's modules primarily for future GPT projects.
 
-  </details>
 
 <br>
 
 #### About `mxnet` install (numpy version conflict)
 
-  <details>
-  <summary> See detail</summary>
 
 - If you have a problem in the process of installing `mxnet`, you need to use `python=<3.7.0`.
 - Any other options can not solve the numpy version conflict problem while `pip install mxnet`. 
@@ -505,14 +500,11 @@ $ pip install corpusshow
   ```
 - You may try to install `mxnet` before installing `gluonnlp`.
 
-</details>
 
 <br>
 
 #### About KO-BERT version conflict
 
-  <details>
-  <summary> See detail</summary>
 
 
 - As a result of conflict from above note(About `mxnet` install), KO-BERT still has version conflict.
@@ -527,14 +519,10 @@ $ pip install corpusshow
   - If you DO NOT use mxnet with KO-BERT, then remove mxnet in kO-bert `requirements.txt` or adjust(loosen) version as your environments.
   - If you DO use mxnet with KO-BERT, then just clone the repository and import the module as it is.
 
-</details>
 
 <br>
 
 #### About random initialization in mxnet
-
-<details>
-<summary> See detail</summary>
 
 
   ```
@@ -546,15 +534,10 @@ $ pip install corpusshow
 - Therefore, unlike other models, in the case of the Bert model, it is recommended to perform indicator checks in the trainset every iters.
 - When using the Apache mxnet framework, carefully organize which layers to lock and which layers to update and in what order. Even when refactoring, initialize and update layers carefully. => to save your time.
 
-</details>
 
 <br>
 
 #### About Tokenizer Error
-
-<details>
-<summary> See detail</summary>
-
 
   ```
   The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
@@ -565,15 +548,10 @@ $ pip install corpusshow
 - First of all, check that num_classes are the same. And make sure classes of torch and mxnet framework are not used interchangeably. Finally, check if there is a conflict or mixed use in the wrapped class as written below. (Ignore the following if it has been resolved.)
 - As mentioned above, If it is impossible to download the pretrained KOBERT weights from the aws server, you can download the wrapped weights to the hugging face interface through XLNetTokenizer. [ [3](https://github.com/SKTBrain/KoBERT/tree/master/kobert_hf) ]
 
-</details>
 
 <br>
 
 #### About Korean NLP Models
-
-
-<details>
-<summary> See detail</summary>
 
 - Almost all Korean NLP Models have not been updated often. Thus you should try to install lower versions of packages.
 - recommendation: `python<=3.7.0` <br>
@@ -583,6 +561,5 @@ $ pip install corpusshow
   - If you can not download torch KO-BERT weight with urlib3 or boto3 library error message include 'PROTOCOL_TLS' issue, This is an error related to Amazon aws server download. Thus, => use huggingface interface https://github.com/SKTBrain/KoBERT/tree/master/kobert_hf
   - If you have other questions, please send me an e-mail. *All is Well!! Happy Coding!!*
 
-</details>
 
 <br>
