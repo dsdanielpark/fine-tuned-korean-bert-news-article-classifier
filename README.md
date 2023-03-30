@@ -12,11 +12,13 @@
 With the growing importance of natural language processing in the field of artificial intelligence, the development of high-performance models for text classification tasks has become increasingly crucial. In this study, I propose a fine-tuned Korean BERT (Bidirectional Encoder Representations from Transformers) news article classifier, which is capable of accurately classifying Korean news articles into one of eight pre-defined categories. I compare the performance of KO-BERT and BERT implementations in different frameworks, including PyTorch, APACHE MXNET GluonNLP, and Hugging-Face, using the Korean News Topic Classification Dataset collected and provided privately by a specific company. My experimental results show that the fine-tuned KO-BERT model outperforms the BERT model, achieving an accuracy of 96.29%, which is a significant improvement compared to the previous state-of-the-art results. I also investigate the impact of pre-trained clustering information from SBERT (Sentence-BERT) on the fine-tuned KO-BERT model and show that it can further enhance the model's performance. My study demonstrates the effectiveness of fine-tuning pre-trained language models for text classification tasks and provides insights into the optimal use of clustering information in improving the 
 model's performance.
 
-<br>
-
 ##### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
 
-<br>
+
+
+
+
+<br><br><br><br><br><br><br><br>
 
 ## Overview: Repository class diagram (`packages.dot`)
 - For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
@@ -24,7 +26,21 @@ model's performance.
 
 ![](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
 
-<br>
+# Contents
+- [TASK: Multi-category(8 classes) Korean News Topic Classifier](#task--multi-category-8-classes--korean-news-topic-classifier)
+- [This repository](#this-repository)
+- [Quick Start](#quick-start)
+- [Outline](#outline)
+- [Results](#results)
+- [Experiments](#experiments)
+- [Evaluation](#evaluation)
+- [Embedding Token Visuallization<br>](#embedding-token-visuallization-br-)
+- [Discussion](#discussion)
+- [References <Br>](#references--br-)
+
+<br><br><br><br><br><br><br><br>
+
+
 
 # TASK: Multi-category(8 classes) Korean News Topic Classifier 
 A multi-category Korean news topic classifier model. <Br>
