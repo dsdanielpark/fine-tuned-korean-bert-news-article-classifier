@@ -290,7 +290,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
 # Embedding Token Visuallization<br>
 
-  #### **1. Visualization of Ground Truth Category Distribution by Cluster Count when performing K-means clustering using the Euclidean distance of tokens generated from SBERT**
+  ### Visualization of Ground Truth Category Distribution by Cluster Count when performing K-means clustering using the Euclidean distance of tokens generated from SBERT
 
   - The blue stone between y-tick bands represents each cluster.
   - If there is no category within the cluster, it will not be visualized, so a narrow band means that there are fewer unique values of existing Ground Truth Categories.
@@ -316,7 +316,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
   <br>
   
-  #### **2. Visualization of tokens generated from SBERT** <br>
+  ### Visualization of tokens generated from SBERT <br>
   The study conducted in this repository found that, similar to the research on Multilingual BERT Embedding Space and Embedding Space in Recommender Systems, tokens with a more isotropic distribution in the embedding space tend to show better performance. The SBERT used for token visualization in this repository is also Multilingual BERT, so it was assumed that there was not much difference between this experiment and the research in [[10]](https://aclanthology.org/2022.findings-acl.103.pdf) [[11]](https://arxiv.org/abs/2105.08908). The distribution of tokens in the embedding space created from the title was found to be slightly more isotropic, and it was confirmed that experiments using only the title or only the body of the article achieved higher accuracy compared to experiments using both (0.8269 and 0.8864, respectively). As a result, it is suggested that finding datasets or preprocessing methods that have a more isotropic token distribution in a low-dimensional space through visualization before fine-tuning tasks in BERT can lead to better model training results.
 
   2-1 Token visualization generated from the titles of articles
@@ -327,7 +327,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
   *Fig 7. Visualization of embedded tokens from SBERT for body of Korean articles* <br><br>
   
 
-  #### **3. Visualization of CLS Token during KO-BERT fine-tuning process.**
+  ### Visualization of CLS Token during KO-BERT fine-tuning process.
   in the [HuggingFace BERT documentation](https://huggingface.co/docs/transformers/model_doc/bert#bertmodel), the returns of the BERT model are `(last_hidden_state, pooler_output, hidden_states[optional], attentions[optional])`
 
 <br>
@@ -363,8 +363,6 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
       - Basic Architecture of BERT models is Next token prediction, hence it is performed to compare the difference between giving information about BERT-based clustering information to the initial hidden layer and just putting information about clustering in the sentence.
       - K-means clustering is performed through the euclidean distance of the latent vector generated from the multilingual-BERT model [5].
       - Since two pretrained BERT model weights were used in the entire pipeline, only information was distilled and embedded when it was determined to be significant to prevent model confusion.
-
-<br>
   
   4. A discussion on EXP2 & EXP9 related to DistilBERT.
 
@@ -443,7 +441,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
 ## Remark
 - *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
--I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
+- I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
 
 <!-- - *This is just a toy project! please enjoy it!* <br>
 ![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
