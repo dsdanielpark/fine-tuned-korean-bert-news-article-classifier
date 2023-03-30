@@ -417,13 +417,13 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 <br>
 
 # [Optional] Related Packages
-### 1. [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
+### [`QuickShow`](https://pypi.org/project/quickshow/): A package to quickly and easily visualize a pandas.DataFrame as input
 ```bash
 $ pip install quickshow
 ```
 - Some visualization modules used in this project have been released. I will conveniently wrap various modules used in several projects so that they can be continuously updated in the future.
 
-### 2. [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
+### [`CorpusShow`](https://pypi.org/project/corpusshow/): Corpus-Show helps to understand the corpus data distribution through various values generated from NLP sentence embedder.
 ```bash
 $ pip install corpusshow
 ```
