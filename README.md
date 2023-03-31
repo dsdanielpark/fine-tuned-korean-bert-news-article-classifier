@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/linting-pylint-yellowgreen)
 
 
-> **Be careful when cloning this repository**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
+> **Be careful when cloning this repository**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/)) <br>
 > If you want to clone without git-lfs, use this command before `git clone`.
 ```
 git lfs install --skip-smudge
