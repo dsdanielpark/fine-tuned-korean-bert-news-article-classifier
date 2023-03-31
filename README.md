@@ -348,7 +348,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
   ## Further experiments
   
-  The original dataset without any preprocessing showed more than 70% accuracy, which met the requirements. However, it is important to check which tokens affect the model inference and whether the model is using any strange tokens in the input article data. The team plans to visualize the impact of tokens and observe the differences in batch size and max_length of the BERT model, which could be helpful for fine-tuning in the future. I also plan to explore sentence embedding clusters and conduct additional experiments. The team found that high-quality and low-volume cluster information obtained from sentence embeddings can significantly impact model training speed. This knowledge distillation process can contribute to faster learning of heavier models. The team also emphasized the importance of ensuring that the labels passed on from other models contain sufficient and accurate information. The team plans to create 8 cluster information for 8 classification models, which should be more accurate than 16 clusters.
+  The original dataset without any preprocessing showed more than 70% accuracy, which met the requirements. However, it is important to check which tokens affect the model inference and whether the model is using any strange tokens in the input article data. I plan to visualize the impact of tokens and observe the differences in batch size and max_length of the BERT model, which could be helpful for fine-tuning in the future. I also plan to explore sentence embedding clusters and conduct additional experiments. I found that high-quality and low-volume cluster information obtained from sentence embeddings can significantly impact model training speed. This knowledge distillation process can contribute to faster learning of heavier models. I also emphasized the importance of ensuring that the labels passed on from other models contain sufficient and accurate information. I plan to create 8 cluster information for 8 classification models, which should be more accurate than 16 clusters.
 
 <br>
 
@@ -447,7 +447,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
 ## Remark
 - *Please note that the domain was not fully searched because it is not mission critical artificial intelligence and is intended to simply identify NLP(Natural Language Processing) models in korean and perform requested tasks in a short period of time with limited data.*
-- I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. The author notes that there may be considerations such as continuous learning.
+- I suggests that additional experiments or tricks may be necessary if the model is used in actual service. However, if the model is applied in the same way as the heuristic method, it is expected to maintain satisfactory performance. Notes that there may be considerations such as continuous learning.
 
 <!-- - *This is just a toy project! please enjoy it!* <br>
 ![](https://github.com/DSDanielPark/news-article-classification-using-koBERT/blob/main/imgs/enjoy2.gif) -->
