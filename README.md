@@ -5,7 +5,12 @@
 
 
 > **Be careful when cloning this repository**: It contains large NLP model weight. (>0.3GB, [`git-lfs`](https://git-lfs.com/))
-
+> If you want to clone without git-lfs, use this command before `git clone`.
+```
+git lfs install --skip-smudge
+export GIT_LFS_SKIP_SMUDGE=1
+```
+ 
  Fine-Tuned Korean BERT News Article Classifier
 
 ### Abstract:
