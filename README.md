@@ -18,7 +18,6 @@ With the growing importance of natural language processing in the field of artif
 
 ##### Keywords: BERT, KO-BERT, text classification, natural language processing, deep learning, pre-training, fine-tuning, SBERT
 
-Not official research.
 
 
 
