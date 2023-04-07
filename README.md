@@ -117,6 +117,12 @@ A multi-category Korean news topic classifier model. <Br>
 # Quick Start
 This repository includes a highly encapsulated inference class for the BERT classifier.
 
+[Optional] It is recommended to use Python 3.6 with virtual environment assistant software such as venv or conda, as some packages are no longer receiving compatibility updates.
+```
+$ conda create -n bertnewsclf python=3.6
+$ conda activate bertnewsclf
+```
+ 
 ```
 $ git clone https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier.git
 $ cd fine-tuned-korean-BERT-news-article-classifier
