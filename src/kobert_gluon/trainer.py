@@ -78,9 +78,9 @@ class BERTTrainer:
                     if accumulate and accumulate > 1:
                         self.all_model_params.zero_grad()
 
-                step_loss += ls.asscalar()  # calculate loss
+                step_loss += ls.asscalar() 
 
-                metric.update([label], [out])  # calculate metric
+                metric.update([label], [out]) 
                 if (batch_id + 1) % (50) == 0:
                     print(
                         "[Epoch {} Batch {}/{}] loss={:.4f}, config.lr={:.10f}, acc={:.3f}".format(
