@@ -9,13 +9,13 @@ from tqdm.notebook import tqdm
 
 class BERTTrainer:
     def __init__(self, cfg, model, data_iter, optimizer, save_dir, device):
-        self.cfg = cfg  # config for training: see class Config
+        self.cfg = cfg 
         self.model = model
-        self.data_iter = data_iter  # iterator to load data
+        self.data_iter = data_iter 
         self.optimizer = optimizer
         self.save_dir = save_dir
         self.device = device
-        self.device = mx.cpu()  # device name
+        self.device = mx.cpu() 
         self.all_model_params = model.collect_params()
         self.log_interval = 4
 

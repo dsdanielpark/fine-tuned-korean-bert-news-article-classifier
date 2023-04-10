@@ -1,6 +1,5 @@
 # TEMPORAL CLASS, will not be refactored.
 
-
 import sys
 from pathlib import Path
 
@@ -24,6 +23,7 @@ class GluonBERTClassifierEvaluator(BERTClassifier, NLPdata):
         super(NLPdata).__init__()
         self.cfg = cfg
         self.device = mx.cpu()
+        self.cxt = mx.cpu(0),
         self.bert_base, self.vocab = get_mxnet_kobert_model(
             use_decoder=False, use_classifier=False, ctx=mx.cpu(), cachedir=".cache"
         )
@@ -42,7 +42,7 @@ class GluonBERTClassifierEvaluator(BERTClassifier, NLPdata):
         )
         self.save_path = save_path
 
-    def _mxnet_inference(self, model: object, save_path: str) -> (list, list):
+    def _mxnet_inference(self, model: object, save_path: str) -> List[list, list]:
         class_dict = {
             0: "international",
             1: "economy",
@@ -126,7 +126,7 @@ class GluonBERTClassifierEvaluator(BERTClassifier, NLPdata):
     ):
         # pre-trained bert base down and use cached one.
         bert_base, vocab = get_mxnet_kobert_model(
-            use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache"
+            use_decoder=False, use_classifier=False, ctx=self.ctx, cachedir=".cache"
         )
         tokenizer = get_tokenizer()
         tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
@@ -151,7 +151,7 @@ class GluonBERTClassifierEvaluator(BERTClassifier, NLPdata):
             data_test, batch_size=int(self.cfg["batch_size"] / 2)
         )
         bert_base, vocab = get_mxnet_kobert_model(
-            use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache"
+            use_decoder=False, use_classifier=False, ctx=self.ctx, cachedir=".cache"
         )
         model = BERTClassifier(bert_base, num_classes=8, dropout=0.1)
         model.load_parameters(model_path)

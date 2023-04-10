@@ -19,8 +19,8 @@ ctx = mx.cpu()
 
 
 def gluon_infer(
-    model: object, data_iter: DataLoader, save_path: str, ctx=ctx
-) -> (list, list):
+    model: object, data_iter: DataLoader, save_path: str, ctx
+) -> List[list, list]:
     i = 0
     cls_dense_layers_val_list = []
     for i, (t, v, s, label) in enumerate(data_iter):
@@ -61,6 +61,7 @@ def gluon_infer(
 if __name__ == "__main__":
     max_len = 128
     batch_size = 32
+    ctx=mx.cpu(0)
     bert_base, vocab = get_mxnet_kobert_model(
         use_decoder=False, use_classifier=False, ctx=ctx, cachedir=".cache"
     )

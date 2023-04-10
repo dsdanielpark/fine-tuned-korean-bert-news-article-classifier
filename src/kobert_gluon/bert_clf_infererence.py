@@ -39,7 +39,7 @@ class GluonBERTClassifierInferencer(BERTClassifier, NLPdata):
         )
         self.save_path = save_path
 
-    def infer(self) -> (list, list):
+    def infer(self) -> List[list, list]:
         i = 0
         cls_dense_layers_val_list = []
         for i, (t, v, s, label) in enumerate(self.data_iter):
