@@ -3,6 +3,8 @@ As mentioned in the main readme.md, pretrained models and tokenizers related to 
 
 The KoBERT topic classifier trained on certain datasets in this repository is also under the same license.
 
+
+
 # References
 [1] documentation https://sktelecom.github.io/project/kobert/
 [2] github https://github.com/SKTBrain/KoBERT
