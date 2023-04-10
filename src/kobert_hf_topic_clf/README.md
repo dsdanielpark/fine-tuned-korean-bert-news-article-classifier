@@ -6,5 +6,5 @@ The KoBERT topic classifier trained on certain datasets in this repository is al
 
 
 # References
-[1] documentation https://sktelecom.github.io/project/kobert/
+[1] documentation https://sktelecom.github.io/project/kobert/ <BR>
 [2] github https://github.com/SKTBrain/KoBERT
