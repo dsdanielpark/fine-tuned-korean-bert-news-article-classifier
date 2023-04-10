@@ -28,7 +28,7 @@ With the growing importance of natural language processing in the field of artif
 - For resource reasons, [KOBERT](https://sktelecom.github.io/project/kobert) was used as a submodule which are the following two folders. 
 - `src/kobert`, `src/kobert_hf` (Red nodes in graphviz)
 
-![](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
+![](https://github.com/DSDanielPark/fine-tuned-korean-bert-news-article-classifier/blob/main/data/imgs/fine-tuned-korean-BERT-news-article-classfier-packages-diagram.png)
 
 <br><br><br><br><br><br><br><br>
 
@@ -124,8 +124,8 @@ $ conda activate bertnewsclf
 ```
  
 ```
-$ git clone https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier.git
-$ cd fine-tuned-korean-BERT-news-article-classifier
+$ git clone https://github.com/DSDanielPark/fine-tuned-korean-bert-news-article-classifier.git
+$ cd fine-tuned-korean-bert-news-article-classifier
 $ pip install -e .
 $ python main.py
 >>> Predicted news topic: international
@@ -231,7 +231,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilBER
 
 </details>
 
-- You can see whole experiments result in [`experments/exp.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp.md) 
+- You can see whole experiments result in [`experments/exp.md`](https://github.com/DSDanielPark/fine-tuned-korean-bert-news-article-classifier/blob/main/experiments/exp.md) 
 - In the case of EXP2 and EXP9, it was repeatedly performed to track and observe the learning rate, confirming similar learning patterns.
 
   | No | Condition | Best Test Accuracy | Epoch | 
@@ -251,7 +251,7 @@ Mode 4 and Mode 5 are designed to create and experiment with a kind of distilBER
 <br>
 
 # Evaluation
-You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/experiments/exp_metric.md).
+You can see evaluation metric of whole experiments in [`exp/exp_metric.md`](https://github.com/DSDanielPark/fine-tuned-korean-bert-news-article-classifier/blob/main/experiments/exp_metric.md).
 
  <img src="./data/imgs/result.png" width="1000"><BR> *Fig 2. F1 score, Recall, Precision for each experiment*
 
@@ -305,7 +305,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 
   - The blue stone between y-tick bands represents each cluster.
   - If there is no category within the cluster, it will not be visualized, so a narrow band means that there are fewer unique values of existing Ground Truth Categories.
-  - The entire table can be found in the [`csv`](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier/blob/main/data/csv) folder.
+  - The entire table can be found in the [`csv`](https://github.com/DSDanielPark/fine-tuned-korean-bert-news-article-classifier/blob/main/data/csv) folder.
 
     <img src="./data/imgs/cluster8.png" width="220" height='200'> <br>
     <img src="./data/imgs/cluster16.png" width="450" height='200'><br>
