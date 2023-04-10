@@ -3,12 +3,7 @@ from mxnet.gluon import nn
 
 
 class BERTClassifier(nn.Block):
-    def __init__(self,
-                 bert,
-                 num_classes=8,
-                 dropout=None,
-                 prefix=None,
-                 params=None):
+    def __init__(self, bert, num_classes=8, dropout=None, prefix=None, params=None):
         super(BERTClassifier, self).__init__(prefix=prefix, params=params)
         self.bert = bert
         with self.name_scope():
@@ -20,4 +15,3 @@ class BERTClassifier(nn.Block):
     def forward(self, inputs, token_types, valid_length=None):
         _, pooler = self.bert(inputs, token_types, valid_length)
         return self.classifier(pooler)
-                                           

@@ -46,5 +46,7 @@ def get_tokenizer(cachedir=".cache"):
     }
 
     model_info = tokenizer
-    model_path, is_cached = download(model_info["url"], model_info["chksum"], cachedir=cachedir)
+    model_path, is_cached = download(
+        model_info["url"], model_info["chksum"], cachedir=cachedir
+    )
     return model_path

@@ -7,9 +7,7 @@ from botocore.client import Config
 
 class AwsS3Downloader(object):
     def __init__(
-        self,
-        aws_access_key_id=None,
-        aws_secret_access_key=None,
+        self, aws_access_key_id=None, aws_secret_access_key=None,
     ):
         self.resource = boto3.Session(
             aws_access_key_id=aws_access_key_id,
