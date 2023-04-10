@@ -20,7 +20,7 @@ class BERTTrainer:
         self.log_interval = 4
 
     @classmethod
-    def fine_tunning(self, config, model, data_train, train_dataloader, test_dataloader, save_path):
+    def fine_tunning(self, config, model, data_train, train_dataloader, test_dataloader, save_path) -> object:
         accumulate = 4
         step_size = config.batch_size * accumulate if accumulate else config.batch_size
         num_train_examples = len(data_train)
@@ -76,11 +76,13 @@ class BERTTrainer:
                                         step_loss / self.log_interval,
                                         trainer.learning_rate, metric.get()[1]))
                     step_loss = 0
-            test_acc = self._evaluate_accuracy(model, test_dataloader, self.device)
+            test_acc = self._evaluate_accuracy(model, test_dataloader)
             print('Test Accuracy: {}'.format(test_acc))
             model.save_parameters(save_path) # model save
 
-    def _evaluate_accuracy(model, data_iter, self.device=self.device):
+        return model
+
+    def _evaluate_accuracy(self, model, data_iter) -> float:
         acc = mx.metric.Accuracy()
         i = 0
         output_dict = {}
