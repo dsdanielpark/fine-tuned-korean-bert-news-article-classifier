@@ -1,3 +1,7 @@
+Development Status :: 3 - Alpha <br>
+*Copyright (c) 2023 MinWoo Park*
+<br>
+
 # Korean-news-topic-classification-using-KO-BERT
 [![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
 ![Code convention](https://img.shields.io/badge/code%20convention-pep8-blue)
