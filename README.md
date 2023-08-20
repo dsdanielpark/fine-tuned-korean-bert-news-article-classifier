@@ -343,7 +343,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
   
 
   ### Visualization of CLS Token during KO-BERT fine-tuning process.
-  in the [HuggingFace BERT documentation](https://huggingface.co/docs/transformers/model_doc/bert#bertmodel), the returns of the BERT model are `(last_hidden_state, pooler_output, hidden_states[optional], attentions[optional])`
+  In the [HuggingFace BERT documentation](https://huggingface.co/docs/transformers/model_doc/bert#bertmodel), the returns of the BERT model are `(last_hidden_state, pooler_output, hidden_states[optional], attentions[optional])`
 
 <br>
 
