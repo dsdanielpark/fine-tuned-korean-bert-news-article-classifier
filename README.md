@@ -410,7 +410,7 @@ The overall results are presented in exp/exp_metric.md. Since the evaluation cha
 # Citation 
 ```bibtex
 @article{minwoopark2023kobert,
-  title={Optimizing Text Classification: Fine-tuned KO-BERT with Pre-trained Clustering Information for Efficient Input Article Tokenization},
+  title={Efficient and Accelerated BERT Training through Pre-Embedding Classification Using SBERT},
   author={Minwoo Park},
   year={2023}
 }
