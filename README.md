@@ -15,8 +15,7 @@ git lfs install --skip-smudge &
 export GIT_LFS_SKIP_SMUDGE=1
 ```
  
- Fine-Tuned Korean BERT News Article Classifier
-## Optimizing Text Classification: Fine-tuned KO-BERT with Pre-trained Clustering Information for Efficient Input Article Tokenization
+## Efficient and Accelerated BERT Training through Pre-Embedding Classification Using SBERT
 ### Abstract:
 With the growing importance of natural language processing in the field of artificial intelligence, the development of high-performance models for text classification tasks has become increasingly crucial. In this study, I propose a fine-tuned Korean BERT (Bidirectional Encoder Representations from Transformers) news article classifier, which is capable of accurately classifying Korean news articles into one of eight pre-defined categories. I compare the performance of KO-BERT and BERT implementations in different frameworks, including PyTorch, APACHE MXNET GluonNLP, and Hugging-Face, using the Korean News Topic Classification Dataset collected and provided privately by a specific company. My experimental results show that the fine-tuned KO-BERT model outperforms the BERT model, achieving an accuracy of 88.95%. I also investigate the impact of pre-trained clustering information from SBERT (Sentence-BERT) on the fine-tuned KO-BERT model and show that it can further enhance the model's performance. My study demonstrates the effectiveness of fine-tuning pre-trained language models for text classification tasks and provides insights into the optimal use of clustering information in improving the model's performance.
 
